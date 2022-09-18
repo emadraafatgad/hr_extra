@@ -1,0 +1,167 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="attendence_payslip_form">
+            <field name="name">attendence.payslip.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='contract_id']" position="before">
+                    <field name="period" attrs="{'invisible': True}"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="termination_list">
+            <field name="name">End of Service list</field>
+            <field name="model">termination.termination</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee"/>
+                    <field name="name" string="End of service"/>
+                    <field name="work_years"/>
+                    <field name="wags" string="Wags"/>
+                    <field name="total_amount"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="termination_from">
+            <field name="name">End of Service form</field>
+            <field name="model">termination.termination</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_done" states="draft" string="Confirm" type="object" class="btn-primary"/>
+                        <button name="action_draft" states="cancel" string="Reset to Draft" type="object"/>
+                        <button name="action_cancel" states="done" string="Cancel" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="name" string="End Of Service Reason" widget="radio"
+                                   options="{'horizontal': true}"/>
+                        </h1>
+                        <group string="Employee Data">
+                            <group>
+                                <field name="employee" string="Employee" attrs="{'readonly':[('state', '!=', 'draft')]}"/>
+                                <field name="leaves_ids"/>
+                            </group>
+                            <group>
+                                <field name="employee_department"/>
+                            </group>
+                        </group>
+
+                        <group string="End of Service">
+                            <group>
+                                <field name="end_of_service" string="End Of Service Date" attrs="{'readonly':[('state', '!=', 'draft')]}"/>
+                                <field name="work_years"/>
+                                <field name="work_days"/>
+                                <field name="move_id" attrs="{'invisible':[('state', '!=', 'done')]}"/>
+                            </group>
+                            <group>
+                                <field name="eos_add" attrs="{'readonly':[('state', '!=', 'draft')]}"/>
+                                <field name="eos_ded" attrs="{'readonly':[('state', '!=', 'draft')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Payslip">
+                                <field name="payslips_ids" attrs="{'readonly':[('state', '!=', 'draft')]}"
+                                       context="{'default_employee_id':employee, 'default_date_to':end_of_service}"/>
+                            </page>
+                            <page string="Contract Data">
+                                <group>
+                                    <group string="contract">
+                                        <field name="cont_start_date"/>
+                                        <field name="cont_end_date"/>
+                                        <field name="wags" string="Wags"/>
+                                        <field name="bank_fees" string="Bank Fees"/>
+                                        <field name="other_deductions" string="Other Deduction"/>
+                                    </group>
+                                    <group string="Allowances">
+                                        <field name="trans_allow" string="Transportation Allowance"/>
+                                        <field name="phone_allow" string="Phone Allowance"/>
+                                        <field name="other_allow" string="Other Allowances"/>
+                                        <field name="houseallowan" string="House Allowance"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="End of service">
+                                <group>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Employee Name" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="joining date" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="salary" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h3 class="text-center">
+                                                        <label string="EOS amount" style="font-weight:bold;"/>
+                                                    </h3>
+
+                                                </td>
+                                                <td>
+                                                    <h3 class="text-center">
+                                                        <label string="Total amount" style="font-weight:bold;"/>
+                                                    </h3>
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-center">
+                                                    <field name="employee_name" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="cont_start_date" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="net_salary" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="leaving_indemnity" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="total_amount" attrs="{'readonly':True}"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name="total_amount"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="termination_action_window">
+            <field name="name">End of Service</field>
+            <field name="res_model">termination.termination</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menu categories -->
+        <menuitem name="End of Service" action="termination_action_window" id="termination_menu_1"
+                  parent="hr_payroll.menu_hr_payroll_root" sequence="11"/>
+
+    </data>
+</odoo>

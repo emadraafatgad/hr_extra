@@ -1,0 +1,132 @@
+<odoo>
+
+    <data>
+        <record id="inherit_hr_contract_form_view" model="ir.ui.view">
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='history']" position="inside">
+                    <group>
+                        <field name="exemption_ids">
+                            <tree decoration-muted="state == 'cancel'" decoration-success="state == 'done'">
+                                <field name="name"/>
+                                <field name="type"/>
+                                <field name="date"/>
+                                <field name="late_reason"/>
+                                <field name="reason_type"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <!--explicit list view definition -->
+        <record model="ir.ui.view" id="exemption_list">
+            <field name="name">exemption list</field>
+            <field name="model">exemption.exemption</field>
+            <field name="arch" type="xml">
+                <tree decoration-bf="state == 'approve'" decoration-info="state == 'draft'"
+                      decoration-muted="state == 'cancel'" decoration-success="state == 'done'"
+                      decoration-warning="state == 'majid'">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="date"/>
+                    <field name="late_hours" widget="float_time"/>
+                    <field name="late_reason"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="exemption_from">
+            <field name="name">exemption form</field>
+            <field name="model">exemption.exemption</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_done" states="majid" groups="hr.group_hr_manager" string="Confirm"
+                                type="object" class="btn-primary"/>
+                        <button name="action_mail" states="draft" string="Send for approval" type="object"/>
+                        <button name="action_approve" states="sent" string="Approve" type="object" class="btn-primary"/>
+                        <button name="action_majid" groups="hr_requests_new.group_hr_majid" states="approve"
+                                string="Approve" type="object" class="btn-primary"/>
+                        <button name="action_draft" states="cancel" string="Reset to Draft" type="object"/>
+                        <button name="action_cancel" states="majid,done" groups="hr.group_hr_manager"
+                                string="Reject" type="object"/>
+                        <button name="action_cancel" states="draft,sent" string="Reject" type="object"/>
+                        <button name="action_cancel" groups="hr_requests_new.group_hr_majid" states="approve"
+                                string="Reject" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,sent,approve,majid,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+
+                                <field name="name" attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="type" attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="reason_type"
+                                       attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="approver_ids" widget="many2many_tags"
+                                       attrs="{'invisible': [('state', 'in', ['draft','cancel','done'])]}"/>
+
+                            </group>
+                            <group>
+                                <field name="date" attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="date_from" widget="float_time"
+                                       attrs="{'invisible': [('type', '!=', 'other')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="date_to" widget="float_time"
+                                       attrs="{'invisible': [('type', '!=', 'other')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="late_hours" widget="float_time"
+                                       attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="emp_id" attrs="{'invisible': True}"/>
+                            </group>
+                            <!--<field name="late_reason" attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>-->
+                        </group>
+                        <notebook>
+                            <page string="Reason">
+                                <field name="late_reason"
+                                       attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="exemption_search" model="ir.ui.view">
+            <field name="name">exemption.search</field>
+            <field name="model">exemption.exemption</field>
+            <field name="arch" type="xml">
+                <search string="Requests">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <filter string="Done" name="done" domain="[('state','=','done')]"/>
+                    <filter string="Canceled" name="cancel" domain="[('state','=','cancel')]"/>
+                    <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                    <filter string="Approved by Level 1" name="approve" domain="[('state','=','approve')]"/>
+                    <filter string="Approved by Level 2" name="gm_approve" domain="[('state','=','majid')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Employee" context="{'group_by':'name'}"/>
+                        <filter string="State" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_exemption_exemption_form">
+            <field name="name">Permission Request</field>
+            <field name="res_model">exemption.exemption</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="exemption_search"/>
+        </record>
+
+        <menuitem
+                name="Permission Request" id="menu_exemption_exemption" action="action_exemption_exemption_form"
+                parent="hr_holidays.menu_hr_holidays_my_leaves" sequence="1"/>
+
+    </data>
+</odoo>

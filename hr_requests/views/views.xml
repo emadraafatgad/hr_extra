@@ -1,0 +1,112 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="hr_requests_list">
+            <field name="name">hr_requests list</field>
+            <field name="model">hr.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="reason"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_requests_form">
+            <field name="name">hr request Form View</field>
+            <field name="model">hr.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--attrs="{'invisible': [('employee_id.parent_id.user_id', '!=', active_id)]}"-->
+                    <header>
+                        <button name="action_done" states="approve" groups="hr.group_hr_manager" string="Confirm"
+                                type="object" class="btn-primary"/>
+                        <button name="action_approve" states="draft" string="Approve" type="object"
+                                class="btn-primary"/>
+                        <button name="action_draft" states="cancel" string="Reset to Draft" type="object"/>
+                        <button name="action_cancel" states="done,approve" string="Cancel" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="type" string="Employee"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                        </group>
+                        <group string="Employee Data">
+                            <group>
+                                <field name="employee_id" string="Employee"/>
+                                <field name="job_id"/>
+                                <field name="last"/>
+                            </group>
+                            <group>
+                                <field name="department_id"/>
+                                <field name="country_id"/>
+                                <field name="emp_id"/>
+                            </group>
+
+                        </group>
+
+                        <group string="Request Data">
+
+                            <group>
+                                <field name="letter" attrs="{'invisible': [('type', '!=', 'letter')]}"/>
+                                <field name="per_from" attrs="{'invisible': [('type', '!=', 'trip')]}"/>
+                                <field name="dest_from" attrs="{'invisible': [('type', '!=', 'trip')]}"/>
+                                <!--['renew','resign', 'terminate', 'promote', 'trip', 'suspend','letter', 'penalty']-->
+                                <field name="contract" string="Current Contract"
+                                       attrs="{'invisible': [('type', 'not in', ['renew','resign', 'terminate', 'promote', 'suspend', 'penalty'])]}"/>
+                                <field name="date_start"
+                                       attrs="{'invisible': [('type', 'not in', ['renew','resign', 'terminate', 'promote', 'suspend', 'penalty'])]}"/>
+                                <field name="wage"
+                                       attrs="{'invisible': [('type', 'not in', ['renew','resign', 'terminate', 'promote', 'suspend', 'penalty'])]}"/>
+                                <field name="phoneallowance" attrs="{'invisible': [('type', '!=', 'promote')]}"/>
+                                <field name="otherallowances" attrs="{'invisible': [('type', '!=', 'promote')]}"/>
+                            </group>
+                            <group>
+                                <field name="per_to" attrs="{'invisible': [('type', '!=', 'trip')]}"/>
+                                <field name="dest_to" attrs="{'invisible': [('type', '!=', 'trip')]}"/>
+                                <field name="pen_type" attrs="{'invisible': [('type', '!=', 'penalty')]}"/>
+                                <field name="am_type" attrs="{'invisible': [('type', '!=', 'penalty')]}"/>
+                                <field name="amount" attrs="{'invisible': [('type', '!=', 'penalty')]}"/>
+                                <field name="new_job_id" attrs="{'invisible': [('type', '!=', 'promote')]}"/>
+                                <field name="new_wage" attrs="{'invisible': [('type', '!=', 'promote')]}"/>
+                                <field name="new_phoneallowance" attrs="{'invisible': [('type', '!=', 'promote')]}"/>
+                                <field name="new_otherallowances" attrs="{'invisible': [('type', '!=', 'promote')]}"/>
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Reasons">
+                                <field name="reason"/>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="hr_requests_action_window">
+            <field name="name">Requests</field>
+            <field name="res_model">hr.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Requests" id="hr_requests_menu" parent="hr.menu_hr_root" sequence="91"
+                  action="hr_requests_action_window"/>
+        <!--<menuitem name="Server to list" id="hr_requests" parent="hr_requests.menu_2"-->
+        <!--action="hr_requests.action_server"/>-->
+    </data>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="contract_form_view_inherit" model="ir.ui.view">
+            <field name="name">contract_form_view_inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="before">
+                    <group>
+                        <field name="salary_scale_id" options="{'no_create': True}"/>
+                        <field name="has_house_allowance"/>
+                        <field name="house_allowance" attrs="{'invisible': [('has_house_allowance','=',False)]}"/>
+                        <field name="has_transportation_allowance"/>
+                        <field name="transportation_allowance" attrs="{'invisible': [('has_transportation_allowance','=',False)]}" />
+                        <field name="gosi_employee"/>
+                        <field name="gosi_company"/>
+                        <field name="bank_fees"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_salary_scale_action">
+            <field name="name">HR Salary Scale</field>
+            <field name="res_model">hr.salary.scale</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="hr_salary_scale_menu" name="Salary Scale" parent="hr.menu_hr_root"
+                  action="hr_salary_scale_action"/>
+
+
+        <record id="hr_salary_scale_form_view" model="ir.ui.view">
+            <field name="name">Salary Scale Form View</field>
+            <field name="model">hr.salary.scale</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="wage"/>
+                            <field name="house_allowance"/>
+                            <field name="transportation_allowance"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_hr_salary_scale_tree" model="ir.ui.view">
+            <field name="name">view.hr.salary.scale.tree</field>
+            <field name="model">hr.salary.scale</field>
+            <field name="arch" type="xml">
+                <tree string="Salary Scale">
+                    <field name="name"/>
+                    <field name="wage"/>
+                    <field name="house_allowance"/>
+                    <field name="transportation_allowance"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

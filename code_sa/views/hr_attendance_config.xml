@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="hr_attendance_config_action">
+            <field name="name">Attendance config</field>
+            <field name="res_model">hr.attendance.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_attendance_config_tree_id">
+            <field name="name">attendance config</field>
+            <field name="model">hr.attendance.config</field>
+            <field name="arch" type="xml">
+                <tree string="sheet list">
+                    <field name="f_time_from" widget="float_time"/>
+                    <field name="f_time_to" widget="float_time"/>
+                    <field name="f_hours" widget="float_time"/>
+                    <field name="s_time_from" widget="float_time"/>
+                    <field name="s_time_to" widget="float_time"/>
+                    <field name="s_hours" widget="float_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_attendance_config_view_form_id">
+            <field name="name">hr.attendance.config</field>
+            <field name="model">hr.attendance.config</field>
+            <field name="arch" type="xml">
+                <form string="attendance">
+                    <sheet>
+                        <group colspan="4" col="2">
+
+                            <group string="Rule 1">
+                                <field name="f_time_from" widget="float_time"/>
+                                <field name="f_time_to" widget="float_time"/>
+                                <field name="f_hours" widget="float_time"/>
+                            </group>
+                            <group string="Rule 2" widget="float_time">
+                                <field name="s_time_from" widget="float_time"/>
+                                <field name="s_time_to" widget="float_time"/>
+                                <field name="s_hours" widget="float_time"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="Authorization_request" widget="float_time"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <menuitem id="menu_hr_attendance_config_id" name="Attendance Rules"
+                  parent="hr_attendance.menu_hr_attendance_root"
+                  sequence="99" groups="hr_attendance.group_hr_attendance_manager"/>
+
+        <menuitem id="hr_attendance_config_id" name="Attendance Setting" parent="menu_hr_attendance_config_id"
+                  sequence="99" action="hr_attendance_config_action"
+                  groups="hr_attendance.group_hr_attendance_manager"/>
+    </data>
+</odoo>

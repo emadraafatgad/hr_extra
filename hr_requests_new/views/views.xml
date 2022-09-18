@@ -1,0 +1,275 @@
+<odoo>
+    <data>
+
+        <record id="inherit_hr_contract_form_view" model="ir.ui.view">
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='main_info']" position="inside">
+                    <group>
+                        <field name="salary_from"/>
+                        <field name="old_salary"/>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Penalties">
+                        <field name="penalty_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="date"/>
+                                <field name="amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Promotions">
+                        <field name="promotion_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="date"/>
+                                <field name="amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="history" string="Histroy">
+                        <group>
+                            <field name="request_ids">
+                                <tree decoration-muted="state == 'cancel'" decoration-success="state == 'done'">
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="date"/>
+                                    <field name="reason"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!-- explicit list view definition -->
+        <record id="group_hr_majid" model="res.groups">
+            <field name="name">HR Request Approval</field>
+            <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]"/>
+            <field name="comment">Have Mr. Majid approval in hr requests</field>
+        </record>
+        <record model="ir.ui.view" id="hr_requests_new_list">
+            <field name="name">hr_requests_new list</field>
+            <field name="model">hr.request</field>
+            <field name="arch" type="xml">
+                <tree decoration-bf="state == 'approve'" decoration-info="state == 'draft'"
+                      decoration-muted="state == 'cancel'" decoration-success="state == 'done'"
+                      decoration-warning="state == 'majid'">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="reason"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hr_requests_new_search" model="ir.ui.view">
+            <field name="name">hr.request.search</field>
+            <field name="model">hr.request</field>
+            <field name="arch" type="xml">
+                <search string="Requests">
+                    <field name="employee_id"/>
+                    <field name="type" groups="analytic.group_analytic_accounting"/>
+                    <field name="state"/>
+                    <filter string="Done" name="done" domain="[('state','=','done')]"/>
+                    <filter string="Canceled" name="cancel" domain="[('state','=','cancel')]"/>
+                    <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                    <filter string="Approved by Level 1" name="approve" domain="[('state','=','approve')]"/>
+                    <filter string="Approved by Level 2" name="gm_approve" domain="[('state','=','majid')]"/>
+                    <filter string="Un Renew Contract" name="unrenew" domain="[('type','=','unrenew')]"/>
+                    <filter string="Resignation" name="resign" domain="[('type','=','resign')]"/>
+                    <filter string="Termination" name="terminate" domain="[('type','=','terminate')]"/>
+                    <filter string="Promotion" name="promote" domain="[('type','=','promote')]"/>
+                    <filter string="Business Trip" name="trip" domain="[('type','=','trip')]"/>
+                    <filter string="Suspend Payroll" name="suspend" domain="[('type','=','suspend')]"/>
+                    <filter string=" Reverse Suspend Payroll" name="unsuspend" domain="[('type','=','unsuspend')]"/>
+                    <filter string="Letter" name="letter" domain="[('type','=','letter')]"/>
+                    <filter string="Penalty" name="penalty" domain="[('type','=','penalty')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Employee" context="{'group_by':'employee_id'}"/>
+                        <filter string="Type" context="{'group_by':'type'}"/>
+                        <filter string="State" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_requests_new_form">
+            <field name="name">hr request Form View</field>
+            <field name="model">hr.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--attrs="{'invisible': [('employee_id.parent_id.user_id', '!=', active_id)]}"-->
+                    <header>
+                        <button name="action_done" states="majid" groups="hr.group_hr_manager" string="Confirm"
+                                type="object" class="btn-primary"/>
+                        <button name="action_approve" states="sent" string="Approve" type="object" class="btn-primary"/>
+                        <button name="action_majid" groups="hr_requests_new.group_hr_majid" states="approve"
+                                string="Approve" type="object" class="btn-primary"/>
+                        <button name="action_cancel" states="majid" groups="hr.group_hr_manager"
+                                string="Reject" type="object"/>
+                        <button name="action_cancel" states="sent" string="Reject" type="object"/>
+                        <button name="action_cancel" groups="hr_requests_new.group_hr_majid" states="approve"
+                                string="Reject" type="object"/>
+                        <button name="action_cancel" groups="hr.group_hr_manager"
+                                attrs="{'invisible': ['|', ('type', 'in', ['promote','penalty']), ('state', '!=', 'done')]}"
+                                string="Cancel" type="object"/>
+                        <button name="action_mail" states="draft" string="Send for approval"
+                                type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,sent,approve,majid,done"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="type" attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                            </group>
+                            <group>
+                                <field name="date" attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="approver_ids" widget="many2many_tags"
+                                       attrs="{'invisible': [('state', 'in', ['draft','cancel','done'])]}"/>
+                            </group>
+                        </group>
+                        <group string="Employee Data">
+                            <group>
+                                <field name="employee_id" string="Employee"
+                                       attrs="{'readonly': [('state', 'not in', ['draft','sent'])],'required': [('type','!=','unsuspend')],'invisible': [('type','=','unsuspend')]}"/>
+                                <field name="employee_id1" string="Employee"
+                                       attrs="{'readonly': [('state', 'not in', ['draft','sent'])],'required': [('type','=','unsuspend')],'invisible': [('type','!=','unsuspend')]}"/>
+                                <field name="job_id"/>
+                                <field name="last"
+                                       attrs="{'invisible': [('type', 'not in', ['unrenew','resign', 'terminate'])], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                            </group>
+                            <group>
+                                <field name="department_id"/>
+                                <field name="country_id"/>
+                                <field name="emp_id"/>
+                            </group>
+
+                        </group>
+
+                        <group string="Request Data">
+
+                            <group>
+                                <field name="let_type"
+                                       attrs="{'invisible': [('type', '!=', 'letter')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="letter"
+                                       attrs="{'invisible': [('type', '!=', 'letter')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="per_from"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="dest_from"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="visa"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="hotel"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <!--['unrenew','resign', 'terminate', 'promote', 'trip', 'suspend','letter', 'penalty']-->
+                                <field name="contract" string="Current Contract" groups="hr.group_hr_user"
+                                       attrs="{'invisible': [('type', 'not in', ['unrenew','resign', 'terminate', 'promote', 'suspend', 'penalty'])], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="date_start" groups="hr.group_hr_user"/>
+                                <field name="wage" groups="hr.group_hr_user"
+                                       attrs="{'invisible': [('type', 'not in', ['unrenew','resign', 'terminate', 'promote', 'suspend', 'penalty'])], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="phoneallowance" groups="hr.group_hr_user"
+                                       attrs="{'invisible': [('type', 'not in', ['promote','unrenew','resign', 'terminate'])], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="otherallowances" groups="hr.group_hr_user"
+                                       attrs="{'invisible': [('type', 'not in', ['promote','unrenew','resign', 'terminate'])], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                            </group>
+                            <group>
+                                <field name="stamp"
+                                       attrs="{'invisible': [('type', '!=', 'letter')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="apply_from"
+                                       attrs="{'invisible': [('type', '!=', 'promote')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="per_to"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="dest_to"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="ticket"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="liv_pay"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="transport"
+                                       attrs="{'invisible': [('type', '!=', 'trip')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="pen_type" groups="hr_requests_new.group_hr_majid"
+                                       attrs="{'invisible': [('type', '!=', 'penalty')], 'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                                <field name="am_type"
+                                       attrs="{'invisible': [('type', '!=', 'promote')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="pen_am_type" groups="hr.group_hr_manager,hr_requests_new.group_hr_majid"
+                                       attrs="{'invisible': [('type', '!=', 'penalty')], 'readonly': [('state', 'not in', ['draft','sent','approve'])]}"/>
+                                <label for="amount"
+                                       attrs="{'invisible': [('type', '!=', 'promote')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <div class="o_row" name="amount" attrs="{'invisible': [('type', '!=', 'promote')]}">
+                                    <field name="amount" attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"
+                                           nolabel="1"/>
+                                    <span attrs="{'invisible': [('am_type', '!=', 'percent')]}">%</span>
+                                </div>
+                                <label for="amount" groups="hr.group_hr_manager,hr_requests_new.group_hr_majid"
+                                       attrs="{'invisible': [('type', '!=', 'penalty')], 'readonly': [('state', 'not in', ['draft','sent','approve'])]}"/>
+                                <div class="o_row" name="amount"
+                                     groups="hr.group_hr_manager,hr_requests_new.group_hr_majid"
+                                     attrs="{'invisible': [('type', '!=', 'penalty')]}">
+                                    <field name="amount"
+                                           attrs="{'readonly': [('state', 'not in', ['draft','sent','approve'])]}"
+                                           nolabel="1"/>
+                                    <span attrs="{'invisible': [('pen_am_type', '!=', 'percent')]}">%</span>
+                                    <span attrs="{'invisible': [('am_type', '!=', 'percent')]}">%</span>
+                                </div>
+                                <field name="value"
+                                       attrs="{'invisible': [('type', '!=', 'promote')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="value" groups="hr.group_hr_manager,hr_requests_new.group_hr_majid"
+                                       attrs="{'invisible': [('type', '!=', 'penalty')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="new_job_id"
+                                       attrs="{'invisible': [('type', '!=', 'promote')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="new_phoneallowance"
+                                       attrs="{'invisible': [('type', '!=', 'promote')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                                <field name="new_otherallowances"
+                                       attrs="{'invisible': [('type', '!=', 'promote')], 'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Reasons">
+                                <field name="reason" attrs="{'readonly': [('state', 'not in', ['draft','sent'])]}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="hr_requests_new_action_window">
+            <field name="name">Requests</field>
+            <field name="res_model">hr.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_requests_new_search"/>
+        </record>
+        <record model="ir.actions.act_window" id="hr_trip_action_window">
+            <field name="name">Done Requests</field>
+            <field name="res_model">hr.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','done')]</field>
+            <!--<field name="context">{'default_type':'trip'}</field>-->
+            <!--<field name="domain">[('type','=','student'),('state','=','finished')]</field>-->
+            <!--<field name="context">{'default_type':'student'}</field>-->
+        </record>
+
+        <menuitem name="Requests" id="hr_requests_new_menu" parent="hr.menu_hr_root" sequence="91"
+                  action="hr_requests_new_action_window"/>
+        <menuitem name="Done Requests" id="hr_trip_menu" parent="account.menu_finance_entries" sequence="91"
+                  groups="account.group_account_manager" action="hr_trip_action_window"/>
+
+
+        <!--<menuitem name="Server to list" id="hr_requests_new_new" parent="hr_requests_new_new.menu_2"-->
+        <!--action="hr_requests_new_new.action_server"/>-->
+    </data>
+</odoo>

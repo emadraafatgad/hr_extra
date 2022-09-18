@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vacation_mang,hr vacation Manger,model_vacation_request,hr.group_hr_manager,1,1,1,1
+access_vacation_user,hr vacation user,model_vacation_request,hr.group_hr_user,1,1,1,0
+access_vacation_all,hr vacation all,model_vacation_request,,1,0,0,0
+access_contract_user,hr contract user,hr_contract.model_hr_contract,,1,0,0,0

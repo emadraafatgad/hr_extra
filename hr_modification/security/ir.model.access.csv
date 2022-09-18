@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+salary_scale_all_groups,salary scale all groups,model_hr_salary_scale,,1,1,1,1

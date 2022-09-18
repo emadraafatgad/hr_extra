@@ -1,0 +1,104 @@
+<odoo>
+    <data>
+        <record id="resource_calendar_form_inherit" model="ir.ui.view">
+            <field name="name">resource.calendar.form.inherit</field>
+            <field name="model">resource.calendar</field>
+            <field name="inherit_id" ref="resource.resource_calendar_form"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <field name="max_sign_in" widget="float_time"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="hr_worked_hours_limit_tree_id" model="ir.ui.view">
+            <field name="name">resource.calendar.attendance</field>
+            <field name="model">resource.calendar.attendance</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='hour_to']" position="after">
+                    <field name="hour_from_limit" widget="float_time"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_worked_hours_limit_form_id" model="ir.ui.view">
+            <field name="name">resource.calendar.attendance</field>
+            <field name="model">resource.calendar.attendance</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='hour_to']" position="after">
+                    <field name="hour_from_limit" widget="float_time"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_worked_hours_tree_id" model="ir.ui.view">
+            <field name="name">hr.attendance</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='check_in']" position="before">
+                    <field name="worked_hours" widget="float_time"/>
+                    <field name="day"/>
+                    <field name="planned_sign_in" widget="float_time"/>
+                    <field name="planned_sign_ou" widget="float_time"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_over_late_tree_id" model="ir.ui.view">
+            <field name="name">hr.attendance</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='check_out']" position="after">
+                    <field name="over_time" widget="float_time"/>
+                    <field name="late_in" widget="float_time"/>
+                    <field name="early_sign_out" widget="float_time"/>
+                    <field name="state"/>
+                    <field name="note"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_over_time_color_tree_id" model="ir.ui.view">
+            <field name="name">hr.attendance</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="decoration-info">"over_time &gt; 0.0"
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_worked_hours_form_id" model="ir.ui.view">
+            <field name="name">hr.attendance</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='check_out']" position="after">
+                    <group colspan="4" col="2">
+                        <group>
+                            <field name="planned_sign_in" widget="float_time"/>
+                            <field name="sign_in_limit" widget="float_time"/>
+                            <field name="planned_sign_ou" widget="float_time"/>
+                        </group>
+                        <group>
+                            <field name="over_time" widget="float_time"/>
+                            <field name="late_in" widget="float_time"/>
+                            <field name="early_sign_out" widget="float_time"/>
+                        </group>
+                        <group>
+
+                            <field name="worked_hours" widget="float_time"/>
+                            <field name="deduct_time" widget="float_time"/>
+                            <field name="day"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="hr_eos_action">
+            <field name="name">HR End Of Service</field>
+            <field name="res_model">hr.eos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_eos_view_form_id">
+            <field name="name">hr.eos</field>
+            <field name="model">hr.eos</field>
+            <field name="arch" type="xml">
+                <form string="attendance">
+                    <sheet>
+                        <header>
+                            <button name="action_get_eos_amount" string="Get EOS Amount" type="object"
+                                    class="oe_highlight"/>
+                        </header>
+                        <group colspan="4" col="2">
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="type"/>
+                                <field name="joined_date"/>
+                                <field name="last_working_day"/>
+                                <field name="total_employee_duration"/>
+                                <field name="remaining_leaves"/>
+                                <field name="deductions"/>
+                            </group>
+                            <group>
+                                <field name="eos_amount"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_eos_tree_id">
+            <field name="name">hr.eos</field>
+            <field name="model">hr.eos</field>
+            <field name="arch" type="xml">
+                <tree string="EOS list">
+                    <field name="employee_id"/>
+                    <field name="type"/>
+                    <field name="last_working_day"/>
+                    <field name="total_employee_duration"/>
+                    <field name="remaining_leaves"/>
+                    <field name="deductions"/>
+                    <field name="eos_amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem
+                id="menu_action_hr_end_of_service_form"
+                name="End Of Service"
+                action="hr_eos_action"
+                parent="hr_payroll.menu_hr_payroll_configuration"
+                sequence="16"
+                groups="hr.group_hr_manager,hr_payroll.group_hr_payroll_manager"/>
+
+
+        <record id="hr_contract_joined_date_view_form" model="ir.ui.view">
+            <field name="name">hr.contract</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_start']" position="before">
+                    <label for="joined_date" string="Joined Date"/>
+                    <div>
+                        <field name="joined_date" class="oe_inline"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

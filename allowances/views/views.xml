@@ -1,0 +1,94 @@
+<odoo>
+    <data>
+
+
+        <record id="hr_payslip_run_form" model="ir.ui.view">
+            <field name="name">hr.payslip.run.form</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="confirm_all" type="object" string="Confirm All Payslips" states="draft"
+                            class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_employee_allow_inherit_form_view">
+            <field name="name">hr.employee.form.view</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@icon='fa-book']" position="attributes">
+                    <attribute name="groups">hr.group_hr_manager,hr.group_hr_user</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="allowences" model="ir.ui.view">
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='other']" position="after">
+                    <page string="Allowances" name="allowence">
+                        <group>
+                            <label for="houseallowance"/>
+                            <div class="o_row" name="houseallowance">
+                                <field name="houseallowance" nolabel="1"/>
+                                <span>/ month</span>
+                            </div>
+                            <field name="transallowance"/>
+                            <field name="phoneallowance"/>
+                            <field name="foodallowance"/>
+                            <field name="otherallowances"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//notebook/page[@name='allowence']" position="after">
+                    <page string="Deductions" name="deductions">
+                        <group>
+                            <field name="nationality"/>
+
+                            <field name="gosi" force_save="1" attrs="{'invisible': [('nationality', '!=', True)]}"/>
+                            <field name="employee_gosi" force_save="1"
+                                   attrs="{'invisible': [('nationality', '!=', True)]}"/>
+                            <field name="company_gosi" force_save="1"
+                                   attrs="{'invisible': [('nationality', '!=', True)]}"/>
+                            <field name="bankfees"/>
+                            <field name="otherdeducions"/>
+
+
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//notebook/page[@name='deductions']" position="after">
+                    <page string="Vacations" name="Vacations">
+                        <group>
+
+                            <label for="hasvacationeach"/>
+                            <div class="o_row" name="hasvacationeach">
+                                <field name="hasvacationeach" nolabel="1"/>
+                                <span>/ month</span>
+                            </div>
+                            <label for="annualvacation"/>
+                            <div class="o_row" name="annualvacation">
+                                <field name="annualvacation" nolabel="1"/>
+                                <span>/ days</span>
+                            </div>
+                            <label for="hasticketseach"/>
+                            <div class="o_row" name="hasticketseach">
+                                <field name="hasticketseach" nolabel="1"/>
+                                <span>/ month</span>
+                            </div>
+                            <label for="no_tickets"/>
+                            <div class="o_row" name="no_tickets">
+                                <field name="no_tickets" nolabel="1"/>
+                                <span>/ ticket(s)</span>
+                            </div>
+                            <field name="vac_balance"/>
+                            <field name="done_vac"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

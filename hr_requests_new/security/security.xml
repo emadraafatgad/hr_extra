@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <!--access_hr_requests_new_user,hr_request User,model_hr_request,hr.group_hr_user,1,1,1,0-->
+        <record id="employee_requests_rule" model="ir.rule">
+            <field name="name">Employee requests rule</field>
+            <field name="model_id" ref="hr_requests_new.model_hr_request"/>
+            <field name="groups" eval="[(4, ref('hr.group_hr_user')), (4, ref('base.group_user'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="domain_force">['|','&amp;',('create_uid','=', user.id),('employee_id.user_id','=',user.id),'&amp;',('state','!=','draft'),
+                ('employee_id.parent_id.user_id','=',user.id)]
+            </field>
+        </record>
+
+        <record id="manager_requests_rule" model="ir.rule">
+            <field name="name">Manager requests rule</field>
+            <field name="model_id" ref="hr_requests_new.model_hr_request"/>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')), (4, ref('hr_requests_new.group_hr_majid'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="domain_force">[('state','!=','draft')]</field>
+        </record>
+
+    </data>
+</odoo>

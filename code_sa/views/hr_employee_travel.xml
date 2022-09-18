@@ -1,0 +1,126 @@
+<odoo>
+    <data>
+        <record id="hr_view_employee_travel_id" model="ir.ui.view">
+            <field name="name">hr.contract.travel</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <!--<xpath expr="//field[@name='permit_no']" position="after">-->
+                <!--<field name="air_tickets_provided"/>-->
+                <!--</xpath>-->
+                <notebook position="inside">
+                    <page string="Employee Travel Lines">
+                        <field name="employee_travel_ids" context="{'default_contract_id':id}">
+                            <form string="Employee Travel">
+                                <sheet>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="employee_id"/>
+                                        <field name="contract_id"/>
+                                        <field name="travel_purpose"/>
+                                        <field name="travel_date_from"/>
+                                        <field name="travel_date_to"/>
+                                        <field name="air_line"/>
+                                        <field name="exit_re_entry_issued"/>
+                                        <field name="travel_ticket_issued"/>
+                                        <field name="travel_ticket_remaining"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                            <tree>
+                                <field name="name"/>
+                                <field name="employee_id"/>
+                                <field name="contract_id"/>
+                                <field name="travel_purpose"/>
+                                <field name="travel_date_from"/>
+                                <field name="travel_date_to"/>
+                                <field name="air_line"/>
+                                <field name="exit_re_entry_issued"/>
+                                <field name="travel_ticket_issued"/>
+                                <field name="travel_ticket_remaining"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_employee_travel_action">
+            <field name="name">Employee Travel</field>
+            <field name="res_model">hr.travel.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_employee_travel_view">
+            <field name="name">hr.travel.line.form</field>
+            <field name="model">hr.travel.line</field>
+            <field name="arch" type="xml">
+                <form string="Travel">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="employee_id" options="{'no_create': True}"/>
+                            <field name="contract_id" domain="[('id', '=', parent.employee_id.contract_id.id)]"
+                                   options="{'no_create': True}"/>
+                            <field name="travel_purpose"/>
+                            <field name="travel_date_from"/>
+                            <field name="travel_date_to"/>
+                            <field name="air_line"/>
+                            <field name="exit_re_entry_issued"/>
+                            <field name="travel_ticket_issued"/>
+                            <field name="travel_ticket_remaining"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_employee_travel_tree">
+            <field name="name">hr.travel.line.tree</field>
+            <field name="model">hr.travel.line</field>
+            <field name="arch" type="xml">
+                <tree string="Travel">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="contract_id"/>
+                    <field name="travel_purpose"/>
+                    <field name="travel_date_from"/>
+                    <field name="travel_date_to"/>
+                    <field name="air_line"/>
+                    <field name="exit_re_entry_issued"/>
+                    <field name="travel_ticket_issued"/>
+                    <field name="travel_ticket_remaining"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_air_line_action">
+            <field name="name">Air Line</field>
+            <field name="res_model">air.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_air_line_view">
+            <field name="name">air.line</field>
+            <field name="model">air.line</field>
+            <field name="arch" type="xml">
+                <form string="AIR">
+                    <sheet>
+                        <field name="name"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem name="Employee Travel" id="hr_employee_travel_parent" parent="hr.menu_hr_root"
+                  sequence="90"
+                  groups="hr.group_hr_manager"/>
+
+
+        <menuitem name="Employee Travel" id="hr_employee_travel_child" parent="hr_employee_travel_parent"
+                  sequence="1"
+                  groups="hr.group_hr_manager,hr_payroll.group_hr_payroll_manager"/>
+        action="hr_employee_travel_action"/>
+    </data>
+</odoo>

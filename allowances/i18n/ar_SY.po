@@ -1,0 +1,197 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* allowances
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-22 12:32+0000\n"
+"PO-Revision-Date: 2019-05-22 12:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: allowances
+#: model:ir.ui.view,arch_db:allowances.allowences
+msgid "<span>/ days</span>"
+msgstr "<span>/ الأيام</span>"
+
+#. module: allowances
+#: model:ir.ui.view,arch_db:allowances.allowences
+msgid "<span>/ month</span>"
+msgstr "/ شهر"
+
+#. module: allowances
+#: model:ir.ui.view,arch_db:allowances.allowences
+msgid "<span>/ ticket(s)</span>"
+msgstr "<span>/ تذاكر الطيران</span>"
+
+#. module: allowances
+#: model:ir.ui.view,arch_db:allowances.allowences
+msgid "Allowances"
+msgstr "البدلات"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_annualvacation
+msgid "Annual Vacation Period"
+msgstr "مدة الإجازة السنوية"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_bankfees
+msgid "Bank Fees"
+msgstr "مصروفات بنكية"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_company_gosi
+msgid "Company Gosi"
+msgstr "Company Gosi"
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_company_gosi
+msgid "Company Gosi."
+msgstr "تأمينات الشركة الإجتماعية."
+
+#. module: allowances
+#: model:ir.ui.view,arch_db:allowances.allowences
+msgid "Deductions"
+msgstr "الإقتطاعات"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_done_vac
+msgid "Done Vacations"
+msgstr "الأجازات السابقة"
+
+#. module: allowances
+#: model:ir.model,name:allowances.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقد الموظف"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_employee_gosi
+msgid "Employee GOSI"
+msgstr "تأمينات الموظف الإجتماعية"
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_employee_gosi
+msgid "Employee Gosi."
+msgstr "تأمينات الموظف الإجتماعية."
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_gosi
+msgid "Gosi"
+msgstr "التأمينات الإجتماعية"
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_gosi
+msgid "Gosi."
+msgstr "التأمينات الإجتماعية."
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_hasticketseach
+msgid "Has Tickets Each"
+msgstr "لـه تذكرة طيران كل"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_hasvacationeach
+msgid "Has Vacation Each"
+msgstr "لـه إجازة كل"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_houseallowance
+msgid "House Allowance"
+msgstr "بدل السكن"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_nationality
+msgid "Is a Saudi"
+msgstr "هـل الموظف سعودي ؟"
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_no_tickets
+msgid "No Of tickets."
+msgstr "عدد ت1اكر الطيران."
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_no_tickets
+msgid "No of Tickets"
+msgstr "عدد تذاكر الطيران"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_otherallowances
+msgid "Other Allowances"
+msgstr "بدلات اخرى"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_otherdeducions
+msgid "Other Deductions"
+msgstr "إقتطاعات اخرى"
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_otherdeducions
+msgid "Other deductions."
+msgstr "إقتطاعات اخرى."
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_phoneallowance
+msgid "Phone Allowance"
+msgstr "بدل الهاتف"
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_hasticketseach
+msgid "Tickets."
+msgstr "تذاكر الطيران."
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_transallowance
+msgid "Transportation Allowance"
+msgstr "بدل الانتقال"
+
+#. module: allowances
+#: model:ir.model.fields,field_description:allowances.field_hr_contract_vac_balance
+msgid "Vacation balance"
+msgstr "رصيد الإجازات"
+
+#. module: allowances
+#: model:ir.ui.view,arch_db:allowances.allowences
+msgid "Vacations"
+msgstr "الإجازات"
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_annualvacation
+msgid "annual vacation period."
+msgstr "مدة الإجازة السنوية."
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_hasvacationeach
+msgid "annual vacation."
+msgstr "الإجازة السنوية."
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_bankfees
+msgid "monthly bank fees ."
+msgstr "مصروفات البنك الشهرية ."
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_houseallowance
+msgid "monthly house allowance."
+msgstr "بدل السكن الشهري."
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_otherallowances
+msgid "monthly other allowances ."
+msgstr "البدلات الشهرية الاخرى ."
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_phoneallowance
+msgid "monthly phone allowance."
+msgstr "بدل الهاتف الشهري."
+
+#. module: allowances
+#: model:ir.model.fields,help:allowances.field_hr_contract_transallowance
+msgid "monthly transportation allowance."
+msgstr "بدل الانتقال الشهري."
+

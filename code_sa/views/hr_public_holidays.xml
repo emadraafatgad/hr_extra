@@ -1,0 +1,110 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="hr_public_holiday_action">
+            <field name="name">Holiday</field>
+            <field name="res_model">hr.holiday</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="hr_public_holiday_tree_view_id">
+            <field name="name">Holiday</field>
+            <field name="model">hr.holiday</field>
+            <!--<field name="domain"-->
+            <field name="arch" type="xml">
+                <tree string="Holidays list">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_public_holiday_from_view_id">
+            <field name="name">Holiday</field>
+            <field name="model">hr.holiday</field>
+            <field name="arch" type="xml">
+                <form string="Nutrition">
+                    <sheet>
+                        <group>
+                            <group string="Reason">
+                                <field name="name"/>
+                            </group>
+                            <group string="period">
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                            <field name="notes"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_department_id_form_id" model="ir.ui.view">
+            <field name="name">hr.payslip</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="department_id"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_department_id_search_group_id" model="ir.ui.view">
+            <field name="name">hr.payslip</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='employee_id']" position="after">
+                    <filter string="Department" name="department_id" context="{'group_by':'department_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_commission_worked_hours_form_id" model="ir.ui.view">
+            <field name="name">hr.payslip</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='contract_id']" position="after">
+                    <field name="department_id"/>
+                </xpath>
+                <notebook position="inside">
+                    <page string="Attendance Sheet">
+
+                        <field name="attendance_sheet"/>
+                    </page>
+                    <page string="attendance info">
+                        <group>
+                            <button name="action_get_attendance" type="object" string="Get Attendance Data"
+                                    class="btn-success"/>
+                        </group>
+                        <group>
+                            <field name="working_days"/>
+                            <field name="absence_days"/>
+                            <field name="unpaid_leave_days"/>
+                        </group>
+                        <group>
+                            <field name="working_hours" widget="float_time"/>
+                            <field name="over_time_hours" widget="float_time"/>
+                            <field name="deduct_hours" widget="float_time"/>
+                            <field name="permissions_hours" widget="float_time"/>
+                            <field name="net_deduct_hours" widget="float_time"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <menuitem name="Public Holidays" id="hr_public_holiday_parent" parent="hr_holidays.menu_hr_holidays_root"
+                  sequence="2"
+                  groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+
+
+        <menuitem name="Public Holidays" id="hr_public_holiday_child" parent="hr_public_holiday_parent"
+                  sequence="1"
+                  groups="hr.group_hr_manager,hr_payroll.group_hr_payroll_manager"
+                  action="hr_public_holiday_action"/>
+
+    </data>
+</odoo>

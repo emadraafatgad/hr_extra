@@ -1,0 +1,1890 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr
+#	* hr_contract
+#	* ohrms_loan
+#	* hr_gamification
+#	* hr_requests_new
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-21 10:28+0000\n"
+"PO-Revision-Date: 2019-05-21 10:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr
+#: code:addons/hr/models/hr.py:75
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (نسخة)"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.res_config_settings_view_form
+msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
+msgstr "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_kanban_view_employees
+msgid "<span class=\"o_unfollow\">Unfollow</span>\n"
+"                                    <span class=\"o_following\">Following</span>"
+msgstr "<span class=\"o_unfollow\">إلغاء المتابعة</span>\n"
+"                                    <span class=\"o_following\">متابع</span>"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "<span class=\"text-muted\">(If fixed-term contract)</span>"
+msgstr "لو عقد بشروط ثابتة"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "<span>/ month</span>"
+msgstr "/ شهر"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_department_view_kanban
+msgid "<span>Reporting</span>"
+msgstr "<span>التقارير</span>"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_department_view_kanban
+msgid "<span>To Approve</span>"
+msgstr "<span>للموافقة</span>"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_department_view_kanban
+msgid "<span>To Do</span>"
+msgstr "<span> للعمل به </span>"
+
+#. module: hr_gamification
+#: model:ir.actions.act_window,help:hr_gamification.goals_menu_groupby_action2
+msgid "A goal is defined by a user and a goal type.\n"
+"                    Goals can be created automatically by using challenges."
+msgstr "يتم تعريف الهدف من قبل المستخدم ونوع الهدف.\n"
+"                    يمكن إنشاء الأهداف تلقائيًا باستخدام التحديات."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_active
+#: model:ir.model.fields,field_description:hr.field_hr_employee_active
+msgid "Active"
+msgstr "نشط"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_advantages
+msgid "Advantages"
+msgstr "مميزات"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "Advantages..."
+msgstr "مزايا ..."
+
+#. module: hr_gamification
+#: model:ir.model.fields,help:hr_gamification.field_hr_employee_badge_ids
+msgid "All employee badges, linked to the employee either directly or through the user"
+msgstr "جميع شارات الموظف ، مرتبطة بالموظف إما مباشرة أو من خلال المستخدم"
+
+#. modules: hr_requests_new, ohrms_loan
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_amount
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_amount
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_request_apply_from
+msgid "Apply From"
+msgstr "مقدَم من"
+
+#. modules: hr_requests_new, ohrms_loan
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_loan_form_view
+msgid "Approve"
+msgstr "موافقه"
+
+#. modules: hr_requests_new, ohrms_loan
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+#: selection:hr.loan,state:0
+msgid "Approved"
+msgstr "مقبول"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_department_filter
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: hr_gamification
+#: model:ir.actions.act_window,help:hr_gamification.challenge_list_action2
+msgid "Assign a list of goals to chosen users to evaluate them.\n"
+"                    The challenge can use a period (weekly, monthly...) for automatic creation of goals.\n"
+"                    The goals are created for the specified users or member of the group."
+msgstr "عيّن قائمة بالأهداف للمستخدمين المختارين لتقييمها.\n"
+"                    يمكن أن يستخدم التحدي فترة (أسبوعية ، شهرية ...) لإنشاء الأهداف تلقائيًا.\n"
+"                    يتم إنشاء الأهداف للمستخدمين المحددين أو عضو المجموعة."
+
+#. module: hr_gamification
+#: model:ir.model.fields,field_description:hr_gamification.field_res_users_badge_ids
+msgid "Badge"
+msgstr "الشارة"
+
+#. module: hr_gamification
+#: model:ir.ui.menu,name:hr_gamification.gamification_badge_menu_hr
+msgid "Badges"
+msgstr "الشارات"
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.hr_hr_employee_view_form
+msgid "Badges are rewards of good work. Give them to people you believe deserve it."
+msgstr "الشارات هي مكافئات أو منح للدلالة على العمل الجيد. امنح الشارات لمن ترى أنهم يستحقونها."
+
+#. module: hr_gamification
+#: model:ir.model.fields,help:hr_gamification.field_hr_employee_direct_badge_ids
+msgid "Badges directly linked to the employee"
+msgstr "شارات مرتبطة مباشرة إلى الموظف"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_balance_amount
+msgid "Balance Amount"
+msgstr "المبلغ المستحق"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_bank_account_id
+msgid "Bank Account Number"
+msgstr "رقم الحساب المصرفي"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Birth"
+msgstr "الميلاد"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Business Trip"
+msgstr "رحلة عمل"
+
+#. modules: hr_requests_new, ohrms_loan, hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_loan_form_view
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. modules: hr_requests_new, ohrms_loan
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+#: selection:hr.loan,state:0
+msgid "Canceled"
+msgstr "ملغي"
+
+#. module: hr_contract
+#: selection:hr.contract,state:0
+msgid "Cancelled"
+msgstr "ملغى "
+
+#. module: hr_gamification
+#: model:ir.actions.act_window,name:hr_gamification.challenge_list_action2
+#: model:ir.ui.menu,name:hr_gamification.gamification_challenge_menu_hr
+#: model:ir.ui.menu,name:hr_gamification.menu_hr_gamification
+msgid "Challenges"
+msgstr "التحديات"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_child_ids
+msgid "Child Departments"
+msgstr "الأقسام الفرعية"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Citizenship & Other Information"
+msgstr "الجنسية و معلومات أخرى"
+
+#. module: hr_contract
+#: model:ir.actions.act_window,help:hr_contract.action_hr_contract
+msgid "Click here to create new contracts."
+msgstr "أنقر هنا لإنشاء عقود جديدة."
+
+#. module: hr
+#: model:ir.actions.act_window,help:hr.act_employee_from_department
+#: model:ir.actions.act_window,help:hr.open_view_employee_list_my
+msgid "Click to add a new employee."
+msgstr "انقر هنا لإضافة موظف جديد."
+
+#. module: hr_gamification
+#: model:ir.actions.act_window,help:hr_gamification.challenge_list_action2
+msgid "Click to create a challenge."
+msgstr "انقر لإنشاء التحدي."
+
+#. module: hr
+#: model:ir.actions.act_window,help:hr.open_module_tree_department
+msgid "Click to create a department."
+msgstr "أنقر هنا لإضافة قسم جديد."
+
+#. module: hr_gamification
+#: model:ir.actions.act_window,help:hr_gamification.goals_menu_groupby_action2
+msgid "Click to create a goal."
+msgstr "انقر لإنشاء هدف."
+
+#. module: ohrms_loan
+#: model:ir.actions.act_window,help:ohrms_loan.action_hr_loan_request
+msgid "Click to create a new Loan request."
+msgstr "انقر لإنشاء طلب سلفة جديدة."
+
+#. module: hr
+#: model:ir.actions.act_window,help:hr.action_hr_job
+msgid "Click to define a new job position."
+msgstr "أنقر هنا لإضافة منصب جديد."
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.hr_hr_employee_view_form
+msgid "Click to grant this employee his first badge"
+msgstr "انقر لمنح هذا الموظف شارته الأولى"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_coach_id
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+msgid "Coach"
+msgstr "مدرب"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_color
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_color
+#: model:ir.model.fields,field_description:hr.field_hr_employee_color
+msgid "Color Index"
+msgstr "لون الرقم التسلسلى"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_department_tree
+msgid "Companies"
+msgstr "الشركات"
+
+#. modules: hr, hr_contract, ohrms_loan
+#: model:ir.model.fields,field_description:hr.field_hr_department_company_id
+#: model:ir.model.fields,field_description:hr.field_hr_job_company_id
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_company_id
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_vehicle
+msgid "Company Vehicle"
+msgstr "سيارة الشركة"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_config_settings_resource_calendar_id
+#: model:ir.model.fields,field_description:hr.field_test_config_settings_resource_calendar_id
+msgid "Company Working Hours"
+msgstr "ساعات عمل الشركة"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_complete_name
+msgid "Complete Name"
+msgstr "الاسم الكامل"
+
+#. module: ohrms_loan
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_loan_form_view
+msgid "Compute Installment"
+msgstr "احتساب القسط"
+
+#. module: hr
+#: model:ir.ui.menu,name:hr.menu_human_resources_configuration
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: hr
+#: model:ir.model,name:hr.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Contact Information"
+msgstr "معلومات التواصل"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_contract_id
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_contract_id
+msgid "Contract"
+msgstr "العقد "
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_name
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "Contract Reference"
+msgstr "مرجع العقد"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "Contract Terms"
+msgstr "شروط العقد"
+
+#. module: hr_contract
+#: model:ir.model,name:hr_contract.model_hr_contract_type
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_id_6525
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_name
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_type_view_form
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_type_view_search
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_type_view_tree
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+msgid "Contract Type"
+msgstr "نوع العقد"
+
+#. module: hr_contract
+#: model:ir.actions.act_window,name:hr_contract.action_hr_contract_type
+#: model:ir.ui.menu,name:hr_contract.hr_menu_contract_type
+msgid "Contract Types"
+msgstr "نماذج العقد"
+
+#. module: hr_contract
+#: model:mail.message.subtype,description:hr_contract.mt_contract_pending
+#: model:mail.message.subtype,description:hr_contract.mt_department_contract_pending
+msgid "Contract about to expire"
+msgstr "عقود للتجديد"
+
+#. module: hr_contract
+#: model:mail.message.subtype,description:hr_contract.mt_contract_close
+msgid "Contract expired"
+msgstr "العقد منتهي"
+
+#. module: hr_contract
+#: code:addons/hr_contract/models/hr_contract.py:100
+#, python-format
+msgid "Contract start date must be less than contract end date."
+msgstr "تأريخ بداية التعاقد يجب أن يكون أقل من تأريخ نهاية التعاقد."
+
+#. module: hr_contract
+#: model:mail.message.subtype,name:hr_contract.mt_department_contract_pending
+msgid "Contract to Renew"
+msgstr "تجديد العقد"
+
+#. module: hr_contract
+#: model:ir.actions.act_window,name:hr_contract.act_hr_employee_2_hr_contract
+#: model:ir.actions.act_window,name:hr_contract.action_hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_contract_ids
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_contracts_count
+#: model:ir.ui.menu,name:hr_contract.hr_menu_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_tree
+#: model:ir.ui.view,arch_db:hr_contract.hr_hr_employee_view_form2
+msgid "Contracts"
+msgstr "العقود"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_requests_new
+#: model:ir.model.fields,field_description:hr.field_hr_department_create_uid
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_create_uid
+#: model:ir.model.fields,field_description:hr.field_hr_employee_create_uid
+#: model:ir.model.fields,field_description:hr.field_hr_job_create_uid
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_create_uid
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_create_uid
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_create_uid
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_create_uid
+#: model:ir.model.fields,field_description:hr_requests_new.field_letter_type_create_uid
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_create_uid
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_requests_new
+#: model:ir.model.fields,field_description:hr.field_hr_department_create_date
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_create_date
+#: model:ir.model.fields,field_description:hr.field_hr_employee_create_date
+#: model:ir.model.fields,field_description:hr.field_hr_job_create_date
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_create_date
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_create_date
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_create_date
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_create_date
+#: model:ir.model.fields,field_description:hr_requests_new.field_letter_type_create_date
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_create_date
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. modules: hr_contract, ohrms_loan
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_currency_id
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. modules: hr_requests_new, hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_contract_id
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+#: model:ir.ui.view,arch_db:hr_contract.hr_hr_employee_view_form2
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+msgid "Current Contract"
+msgstr "العقود الحالية"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+msgid "Current Employee"
+msgstr "الموظفون الحاليون"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_job_no_of_employee
+msgid "Current Number of Employees"
+msgstr "عدد الموظفين الحالي"
+
+#. modules: hr_requests_new, ohrms_loan
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_date
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_date
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_birthday
+msgid "Date of Birth"
+msgstr "تاريخ الميلاد"
+
+#. module: hr_requests_new
+#: selection:hr.request,pen_am_type:0
+msgid "Days"
+msgstr "الأيام"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_kanban
+msgid "Delete"
+msgstr "حذف"
+
+#. modules: hr, hr_contract, ohrms_loan
+#: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
+#: model:ir.model.fields,field_description:hr.field_hr_job_department_id
+#: model:ir.ui.view,arch_db:hr.view_department_filter
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_department_id
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_department_id
+#: model:ir.ui.view,arch_db:ohrms_loan.view_loan_request_search_form
+msgid "Department"
+msgstr "القسم"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_name
+msgid "Department Name"
+msgstr "اسم القسم"
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.open_module_tree_department
+#: model:ir.ui.menu,name:hr.menu_hr_department_tree
+#: model:ir.ui.view,arch_db:hr.view_department_filter
+msgid "Departments"
+msgstr "الأقسام"
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
+msgid "Describe what they did and why it matters (will be public)"
+msgstr "صف مافعلوه وما أهميته (سيكون عاماً)"
+
+#. module: hr_gamification
+#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee_direct_badge_ids
+msgid "Direct Badge"
+msgstr "شارة مباشرة"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_requests_new
+#: model:ir.model.fields,field_description:hr.field_hr_department_display_name
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_display_name
+#: model:ir.model.fields,field_description:hr.field_hr_employee_display_name
+#: model:ir.model.fields,field_description:hr.field_hr_job_display_name
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_display_name
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_display_name
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_display_name
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_display_name
+#: model:ir.model.fields,field_description:hr_requests_new.field_letter_type_display_name
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_display_name
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_display_name
+msgid "Display Name"
+msgstr "عرض الاسم"
+
+#. module: hr
+#: selection:hr.employee,marital:0
+msgid "Divorced"
+msgstr "مطلّق"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Done"
+msgstr "منتهي"
+
+#. modules: hr_requests_new, ohrms_loan
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+#: selection:hr.loan,state:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_kanban
+msgid "Edit Contract"
+msgstr "تعديل العقد"
+
+#. module: hr
+#: model:ir.model,name:hr.model_mail_alias
+msgid "Email Aliases"
+msgstr "أسماء البريد الإلكتروني المستعارة"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_gamification, hr_requests_new
+#: model:ir.model,name:hr.model_hr_employee
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+#: model:ir.model,name:hr_contract.model_hr_employee
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_employee_id
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+#: model:ir.model,name:hr_gamification.model_hr_employee
+#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user_employee_id
+#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user_wizard_employee_id
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_request_employee_id1
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+#: model:ir.model,name:ohrms_loan.model_hr_employee
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_employee_id
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_employee_id
+#: model:ir.ui.view,arch_db:ohrms_loan.view_loan_request_search_form
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_gamification
+#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee_badge_ids
+msgid "Employee Badges"
+msgstr "شارات الموظف"
+
+#. module: hr
+#: model:ir.model,name:hr.model_hr_employee_category
+msgid "Employee Category"
+msgstr "تصنيف الموظف"
+
+#. modules: hr_requests_new, hr_contract
+#: model:ir.model,name:hr_contract.model_hr_contract
+#: model:ir.model,name:hr_requests_new.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقود الموظف"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+msgid "Employee Data"
+msgstr "بيانات الموظف"
+
+#. module: hr_gamification
+#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee_goal_ids
+msgid "Employee HR Goals"
+msgstr "أهداف الموظفين"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_name
+msgid "Employee Tag"
+msgstr "وسم الموظف"
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.open_view_categ_form
+#: model:ir.ui.menu,name:hr.menu_view_employee_category_form
+#: model:ir.ui.view,arch_db:hr.view_employee_category_form
+msgid "Employee Tags"
+msgstr "الكلمات الدليلية للموظف"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_bank_account_id
+msgid "Employee bank salary account"
+msgstr "الحساب البنكي لراتب الموظف"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Employee's Name"
+msgstr "اسم الموظف"
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_contract_wage
+msgid "Employee's monthly gross wage."
+msgstr "الأجر الشهري الإجمالي للموظف."
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_contract_resource_calendar_id
+msgid "Employee's working schedule."
+msgstr "جدول عمل الموظف."
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.act_employee_from_department
+#: model:ir.actions.act_window,name:hr.open_view_employee_list
+#: model:ir.actions.act_window,name:hr.open_view_employee_list_my
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_employee_ids
+#: model:ir.model.fields,field_description:hr.field_hr_job_employee_ids
+#: model:ir.ui.menu,name:hr.menu_hr_root
+#: model:ir.ui.menu,name:hr.menu_open_view_employee_list_my
+#: model:ir.ui.view,arch_db:hr.hr_department_view_kanban
+#: model:ir.ui.view,arch_db:hr.res_config_settings_view_form
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+#: model:ir.ui.view,arch_db:hr.view_employee_tree
+#: model:ir.ui.view,arch_db:hr.view_partner_tree2
+msgid "Employees"
+msgstr "الموظفون"
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.open_view_employee_tree
+msgid "Employees Structure"
+msgstr "هيكل الموظفين"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_category_list
+msgid "Employees Tags"
+msgstr "الكلمات الدليلية للموظف"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_date_end
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_contract_date_end
+msgid "End date of the contract (if it's a fixed-term contract)."
+msgstr "تاريخ انتهاء العقد (إذا كان عقدًا محدد المدة)."
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_contract_trial_date_end
+msgid "End date of the trial period (if there is one)."
+msgstr "تاريخ انتهاء الفترة التجريبية (إذا كان هناك واحد)."
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_trial_date_end
+msgid "End of Trial Period"
+msgstr "نهاية الفترة التجريبية"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_address_home_id
+msgid "Enter here the private address of the employee, not the one linked to your company."
+msgstr "أدخل هنا العنوان الخاص للموظف ، وليس العنوان المرتبط بشركتك."
+
+#. module: hr
+#: code:addons/hr/models/hr.py:310
+#, python-format
+msgid "Error! You cannot create recursive departments."
+msgstr "خطأ! لا يمكنك انشاء أقسام متداخلة."
+
+#. module: hr
+#: code:addons/hr/models/hr.py:187
+#, python-format
+msgid "Error! You cannot create recursive hierarchy of Employee(s)."
+msgstr "خطأ! لا يمكنك إنشاء تسلسل هرمي متكرر للموظف ."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_job_no_of_recruitment
+msgid "Expected New Employees"
+msgstr "الموظفين الجدد المتوقعين"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_job_expected_employees
+msgid "Expected number of employees for this job position after new recruitment."
+msgstr "عدد الموظفين المتوقعين لهذا المنصب بعد التوظيف"
+
+#. module: hr_contract
+#: selection:hr.contract,state:0
+#: model:mail.message.subtype,name:hr_contract.mt_contract_close
+msgid "Expired"
+msgstr "منتهي"
+
+#. module: hr
+#: selection:hr.employee,gender:0
+msgid "Female"
+msgstr "أنثى"
+
+#. module: hr_requests_new
+#: selection:hr.request,pen_am_type:0
+msgid "Fixed Amount"
+msgstr "المبلغ الثابت"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_kanban_view_employees
+msgid "Follow"
+msgstr "متابعة"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_kanban_view_employees
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: hr_gamification
+#: model:ir.model,name:hr_gamification.model_gamification_badge
+msgid "Gamification badge"
+msgstr "شارات المنافسة"
+
+#. module: hr_gamification
+#: model:ir.model,name:hr_gamification.model_gamification_badge_user
+msgid "Gamification user badge"
+msgstr "شارة التنافسية للمستخدم"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_gender
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_contract_type_sequence
+msgid "Gives the sequence when displaying a list of Contract."
+msgstr "اظهار التسلسل عند عرض لائحة العقود"
+
+#. module: hr_gamification
+#: model:ir.model.fields,field_description:hr_gamification.field_res_users_goal_ids
+msgid "Goal"
+msgstr "الهدف"
+
+#. module: hr_gamification
+#: model:ir.actions.act_window,name:hr_gamification.goals_menu_groupby_action2
+#: model:ir.ui.menu,name:hr_gamification.gamification_goal_menu_hr
+msgid "Goals History"
+msgstr "تاريخ الأهداف"
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.hr_hr_employee_view_form
+msgid "Grant a Badge"
+msgstr "امنح شارة"
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.hr_badge_form_view
+msgid "Granted"
+msgstr "منحت"
+
+#. module: hr_gamification
+#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_granted_employees_count
+msgid "Granted Employees Count"
+msgstr "عدد الموظفين الممنوحين"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_requests_new
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+#: model:ir.ui.view,arch_db:ohrms_loan.view_loan_request_search_form
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: hr_contract
+#: model:ir.actions.server,name:hr_contract.ir_cron_data_contract_update_state_ir_actions_server
+#: model:ir.cron,cron_name:hr_contract.ir_cron_data_contract_update_state
+#: model:ir.cron,name:hr_contract.ir_cron_data_contract_update_state
+msgid "HR Contract: update state"
+msgstr "عقد الموارد البشرية: تحديث الحالة"
+
+#. module: hr
+#: model:ir.model,name:hr.model_hr_department
+msgid "HR Department"
+msgstr "قسم الموارد البشرية"
+
+#. module: hr_requests_new
+#: model:res.groups,name:hr_requests_new.group_hr_majid
+msgid "HR Request Approval"
+msgstr "موافقة الموارد البشرية على الطلب"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "HR Settings"
+msgstr "إعدادات الموارد البشرية"
+
+#. module: hr_gamification
+#: model:ir.model.fields,field_description:hr_gamification.field_hr_employee_has_badges
+msgid "Has Badges"
+msgstr "لديه شارات"
+
+#. module: hr_requests_new
+#: model:res.groups,comment:hr_requests_new.group_hr_majid
+msgid "Have Mr. Majid approval in hr requests"
+msgstr "اعتماد المدير العام"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_job_no_of_hired_employee
+msgid "Hired Employees"
+msgstr "الموظفون المعينون"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_vehicle_distance
+msgid "Home-Work Dist."
+msgstr "المنزل / العمل"
+
+#. module: hr
+#: model:ir.ui.menu,name:hr.menu_hr_main
+msgid "Human Resources"
+msgstr "الموارد البشرية"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_requests_new
+#: model:ir.model.fields,field_description:hr.field_hr_department_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee_id
+#: model:ir.model.fields,field_description:hr.field_hr_job_id
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_id
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_id
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_id
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_id
+#: model:ir.model.fields,field_description:hr_requests_new.field_letter_type_id
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_id
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_identification_id
+msgid "Identification No"
+msgstr "رقم الهوية"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_active
+msgid "If the active field is set to False, it will allow you to hide the resource record without removing it."
+msgstr "إذا تم تعيين الحقل النشط إلى خطأ، سيسمح لك بإخفاء سجل المورد بدون إزالته."
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+msgid "Important Messages"
+msgstr "رسائل مهمة"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+msgid "In Position"
+msgstr "في المنصب"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+msgid "In Recruitment"
+msgstr "في التوظيف"
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_employee_vehicle_distance
+msgid "In kilometers"
+msgstr "في الكيلومترات"
+
+#. module: ohrms_loan
+#: model:ir.model,name:ohrms_loan.model_hr_loan_line
+msgid "Installment Line"
+msgstr "خط القسط"
+
+#. module: ohrms_loan
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_loan_form_view
+msgid "Installments"
+msgstr "الأقساط"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_manager
+msgid "Is a Manager"
+msgstr "هو مدير"
+
+#. modules: hr, hr_contract
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+#: model:ir.ui.view,arch_db:hr.view_hr_job_form
+#: model:ir.ui.view,arch_db:hr.view_hr_job_tree
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+msgid "Job"
+msgstr "العمل"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_job_description
+msgid "Job Description"
+msgstr "وصف العمل"
+
+#. modules: hr, hr_contract, ohrms_loan
+#: model:ir.model,name:hr.model_hr_job
+#: model:ir.model.fields,field_description:hr.field_hr_employee_job_id
+#: model:ir.model.fields,field_description:hr.field_hr_job_name
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_job_id
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_job_position
+msgid "Job Position"
+msgstr "المناصب الوظيفية"
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.action_hr_job
+msgid "Job Positions"
+msgstr "منصب الوظيفة"
+
+#. module: hr
+#: model:ir.actions.act_window,help:hr.action_hr_job
+msgid "Job Positions are used to define jobs and their requirements.\n"
+"                You can keep track of the number of employees you have per job\n"
+"                position and follow the evolution according to what you planned\n"
+"                for the future."
+msgstr "Job Positions are used to define jobs and their requirements.\n"
+"                You can keep track of the number of employees you have per job\n"
+"                position and follow the evolution according to what you planned\n"
+"                for the future."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_jobs_ids
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+msgid "Jobs"
+msgstr "الوظائف"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_journal_id
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_requests_new
+#: model:ir.model.fields,field_description:hr.field_hr_department___last_update
+#: model:ir.model.fields,field_description:hr.field_hr_employee___last_update
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category___last_update
+#: model:ir.model.fields,field_description:hr.field_hr_job___last_update
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract___last_update
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type___last_update
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty___last_update
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion___last_update
+#: model:ir.model.fields,field_description:hr_requests_new.field_letter_type___last_update
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan___last_update
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_requests_new
+#: model:ir.model.fields,field_description:hr.field_hr_department_write_uid
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_write_uid
+#: model:ir.model.fields,field_description:hr.field_hr_employee_write_uid
+#: model:ir.model.fields,field_description:hr.field_hr_job_write_uid
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_write_uid
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_write_uid
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_write_uid
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_write_uid
+#: model:ir.model.fields,field_description:hr_requests_new.field_letter_type_write_uid
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_write_uid
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. modules: hr, hr_contract, ohrms_loan, hr_requests_new
+#: model:ir.model.fields,field_description:hr.field_hr_department_write_date
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_write_date
+#: model:ir.model.fields,field_description:hr.field_hr_employee_write_date
+#: model:ir.model.fields,field_description:hr.field_hr_job_write_date
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_write_date
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_write_date
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_write_date
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_write_date
+#: model:ir.model.fields,field_description:hr_requests_new.field_letter_type_write_date
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_write_date
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_employee_contract_id
+msgid "Latest contract of the employee"
+msgstr "اخر عقد للموظفين"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_hr_job_form
+msgid "Launch Recruitment"
+msgstr "إطلاق التوظيف"
+
+#. module: hr
+#: selection:hr.employee,marital:0
+msgid "Legal Cohabitant"
+msgstr "معاش قانوني"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Letter"
+msgstr "خطاب"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_request_let_type
+msgid "Letter Type"
+msgstr "نوع الخطاب"
+
+#. module: ohrms_loan
+#: model:hr.salary.rule,name:ohrms_loan.hr_rule_loan
+msgid "Loan"
+msgstr "السلفة"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_emp_account_id
+msgid "Loan Account"
+msgstr "حساب السلف"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_loan_amount
+msgid "Loan Amount"
+msgstr "مبلغ السلفة"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_employee_loan_count
+msgid "Loan Count"
+msgstr "عدد السلف"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_loan_lines
+msgid "Loan Line"
+msgstr "السلفة"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_name
+msgid "Loan Name"
+msgstr "اسم السلفة"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_loan_id
+msgid "Loan Ref."
+msgstr "كود السلفة."
+
+#. module: ohrms_loan
+#: model:ir.model,name:ohrms_loan.model_hr_loan
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_loan_form_view
+msgid "Loan Request"
+msgstr "طلب سلفة"
+
+#. module: ohrms_loan
+#: model:ir.actions.act_window,name:ohrms_loan.action_hr_loan_request
+#: model:ir.ui.menu,name:ohrms_loan.menu_base_hr_loan_request
+#: model:ir.ui.menu,name:ohrms_loan.menu_hr_loan_request
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_loan_tree_view
+msgid "Loan Requests"
+msgstr "طلبات السلف"
+
+#. module: ohrms_loan
+#: model:ir.actions.act_window,name:ohrms_loan.act_hr_employee_loan_request
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_payslip_loan_ids
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_payslip_form_inherit_view
+#: model:ir.ui.view,arch_db:ohrms_loan.view_employee_form_loan_inherit
+msgid "Loans"
+msgstr "السلف"
+
+#. module: ohrms_loan
+#: model:ir.ui.menu,name:ohrms_loan.menu_hr_loans_and_advances
+msgid "Loans And Salary Advance"
+msgstr "السلف"
+
+#. module: hr
+#: selection:hr.employee,gender:0
+msgid "Male"
+msgstr "ذكر"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_manager_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee_parent_id
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+#: model:res.groups,name:hr.group_hr_manager
+msgid "Manager"
+msgstr "المدير"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_marital
+msgid "Marital Status"
+msgstr "الحالة الاجتماعية"
+
+#. module: hr
+#: selection:hr.employee,marital:0
+msgid "Married"
+msgstr "متزوّج"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_hr_employee_view_form2
+msgid "Medical Exam"
+msgstr "فحص طبي"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_medic_exam
+msgid "Medical Examination Date"
+msgstr "تاريخ الفحص الطبي"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_image_medium
+msgid "Medium-sized photo"
+msgstr "صورة متوسطة الحجم"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_image_medium
+msgid "Medium-sized photo of the employee. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr "صورة متوسطة الحجم للموظف. يتم تغيير حجم تلقائيا كصورة 128x128px، مع الحفاظ على نسبة الجانب. استخدام هذا الحقل في عروض النافذة أو بعض عروض كانبان."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_member_ids
+msgid "Members"
+msgstr "الأعضاء"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_kanban_view_employees
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "Monthly Advantages in Cash"
+msgstr "المزايا الشهرية النقدية"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+msgid "Mr Majid Approve"
+msgstr "Mr Majid Approve"
+
+#. modules: hr, hr_requests_new
+#: model:ir.model.fields,field_description:hr.field_hr_employee_name
+#: model:ir.model.fields,field_description:hr_requests_new.field_letter_type_name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_country_id
+msgid "Nationality (Country)"
+msgstr "الجنسية (البلد)"
+
+#. module: hr_contract
+#: selection:hr.contract,state:0
+msgid "New"
+msgstr "جديد"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_installment
+msgid "No Of Installments"
+msgstr "عدد الاقساط"
+
+#. module: hr
+#: selection:hr.job,state:0
+msgid "Not Recruiting"
+msgstr "لا توظيف"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. modules: hr, hr_contract
+#: model:ir.model.fields,field_description:hr.field_hr_employee_notes
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_notes
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_children
+msgid "Number of Children"
+msgstr "عدد الاطفال"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_job_no_of_employee
+msgid "Number of employees currently occupying this job position."
+msgstr "عدد الموظفين الذين يحملون هذا المنصب"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_job_no_of_hired_employee
+msgid "Number of hired employees for this job position during recruitment phase."
+msgstr "عدد الموظفين الذين تم تعيينهم لمنصب هذه الوظيفة  خلال مرحلة التوظيف."
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_job_no_of_recruitment
+msgid "Number of new employees you expect to recruit."
+msgstr "عدد الموظفين المتوقع توظيفهم."
+
+#. module: hr
+#: model:ir.actions.act_window,help:hr.open_module_tree_department
+msgid "Odoo's department structure is used to manage all documents\n"
+"                related to employees by departments: expenses, timesheets,\n"
+"                leaves, recruitments, etc."
+msgstr "هيكل اودوو للادارات يستخدم لادارة كل المستندات\n"
+"المتعلقى بالموظفين (الاقسام, المصورفات, جدول العمل, الاجازات, التوظيف, ...)."
+
+#. module: hr
+#: model:res.groups,name:hr.group_hr_user
+msgid "Officer"
+msgstr "موظف"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_contract_old_otherallowances
+msgid "Old Other Allowances"
+msgstr "البدلات القديمة الأخرى"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_contract_old_phoneallowance
+msgid "Old Phone Allowance"
+msgstr "بدل الهاتف القديم"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_contract_old_salary
+msgid "Old Salary"
+msgstr "الراتب القديم"
+
+#. module: hr
+#: selection:hr.employee,gender:0
+msgid "Other"
+msgstr "غير ذلك"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "Other Information"
+msgstr "معلومات أخرى"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Other Information ..."
+msgstr "معلومات أخرى ..."
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_paid
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_department_parent_id
+msgid "Parent Department"
+msgstr "قسم رئيسي"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_passport_id
+msgid "Passport No"
+msgstr "رقم جواز السفر"
+
+#. module: ohrms_loan
+#: model:ir.model,name:ohrms_loan.model_hr_payslip
+msgid "Pay Slip"
+msgstr "ظرف المرتب"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_date
+msgid "Payment Date"
+msgstr "تاريخ السداد"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_payment_date
+msgid "Payment Start Date"
+msgstr "تاريخ بدء الدفع"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_line_payslip_id
+msgid "Payslip Ref."
+msgstr "كود الرواتب."
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_contract_penalty_ids
+#: model:ir.ui.view,arch_db:hr_requests_new.inherit_hr_contract_form_view
+msgid "Penalties"
+msgstr "العقوبات"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Penalty"
+msgstr "العقوبة"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_request_pen_am_type
+msgid "Penalty Amount Type"
+msgstr "نوع الجزاء"
+
+#. module: hr_requests_new
+#: selection:hr.request,pen_am_type:0
+msgid "Percentage"
+msgstr "النسبة المئوية"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_image
+msgid "Photo"
+msgstr "الصورة"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_employee_place_of_birth
+msgid "Place of Birth"
+msgstr "مكان الميلاد"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Position"
+msgstr "منصب"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_address_home_id
+msgid "Private Address"
+msgstr "العنوان الخاص"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Private Information"
+msgstr "معلومات سرية"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Promotion"
+msgstr "ترقية"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_contract_promotion_ids
+#: model:ir.ui.view,arch_db:hr_requests_new.inherit_hr_contract_form_view
+msgid "Promotions"
+msgstr "ترقية"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_penalty_name
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_promotion_name
+msgid "Reason"
+msgstr "السبب"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+msgid "Reasons"
+msgstr "السبب"
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.hr_hr_employee_view_form
+msgid "Received Badges"
+msgstr "الشارات المتلقاة"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_hr_job_form
+msgid "Recruitment"
+msgstr "التوظيف"
+
+#. module: hr
+#: selection:hr.job,state:0
+msgid "Recruitment in Progress"
+msgstr "قيد التوظيف"
+
+#. module: ohrms_loan
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_loan_form_view
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: ohrms_loan
+#: selection:hr.loan,state:0
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Related User"
+msgstr "مستخدم مرتبط"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_users_employee_ids
+msgid "Related employees"
+msgstr "الموظفين الذين لهم علاقة"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_user_id
+msgid "Related user name for the resource to manage its access."
+msgstr "اسم المستخدم ذو الصلة للمورد لإدارة وصوله."
+
+#. module: hr
+#: model:ir.ui.menu,name:hr.menu_hr_reporting_timesheet
+msgid "Reporting"
+msgstr "اعداد التقرير "
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+msgid "Request Data"
+msgstr "طلب البيانات"
+
+#. module: hr_requests_new
+#: model:ir.actions.act_window,name:hr_requests_new.hr_requests_new_action_window
+#: model:ir.ui.menu,name:hr_requests_new.hr_requests_new_menu
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Requests"
+msgstr "الطلبات"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_job_requirements
+msgid "Requirements"
+msgstr "المتطلبات"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_form
+msgid "Reset to Draft"
+msgstr "إعادة الى وضع المسودة"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Resignation"
+msgstr "استقالة"
+
+#. module: hr_gamification
+#: model:ir.actions.act_window,name:hr_gamification.action_reward_wizard
+#: model:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
+msgid "Reward Employee"
+msgstr "مكافأة الموظف"
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
+msgid "Reward Employee with"
+msgstr "مكافأة الموظف بـ"
+
+#. module: hr_contract
+#: selection:hr.contract,state:0
+msgid "Running"
+msgstr "جاري الإهلاك"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_sinid
+msgid "SIN No"
+msgstr "رقم التوقيع"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_ssnid
+msgid "SSN No"
+msgstr "رقم SSN"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_form
+msgid "Salary Information"
+msgstr "معلومات الراتب"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_contract_salary_from
+msgid "Salary start date"
+msgstr "تاريخ بدء الراتب"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+msgid "Search Contract"
+msgstr "عقد البحث"
+
+#. module: hr_contract
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_type_view_search
+msgid "Search Contract Type"
+msgstr "نوع عقد البحث"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_type_sequence
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_type_view_search
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.res_config_settings_view_form
+msgid "Set default calendar used to compute time allocation for leaves, timesheets, ..."
+msgstr "تعيين التقويم الافتراضي المستخدم لحساب تخصيص الوقت للأوراق والجداول الزمنية ..."
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_job_state
+msgid "Set whether the recruitment process is open or closed for this job position."
+msgstr "حدد ما إذا كانت عملية التوظيف مفتوحة أو مغلقة لهذا المنصب الوظيفي."
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.hr_config_settings_action
+#: model:ir.ui.menu,name:hr.hr_menu_configuration
+#: model:ir.ui.view,arch_db:hr.hr_department_view_kanban
+msgid "Settings"
+msgstr "إعدادات"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_res_config_settings_module_hr_org_chart
+#: model:ir.model.fields,field_description:hr.field_test_config_settings_module_hr_org_chart
+msgid "Show Organizational Chart"
+msgstr "إظهار الهيكل التنظيمي"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.res_config_settings_view_form
+msgid "Show organizational chart on employee form"
+msgstr "عرض الهيكل التنظيمي على ملف الموظف"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.res_config_settings_view_form
+msgid "Show organizational chart on employee form."
+msgstr "عرض الهيكل التنظيمي على ملف الموظف"
+
+#. module: hr
+#: selection:hr.employee,marital:0
+msgid "Single"
+msgstr "أعزب"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_image_small
+msgid "Small-sized photo"
+msgstr "صور صغيرة الحجم"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_image_small
+msgid "Small-sized photo of the employee. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "صورة صغيرة الحجم من الموظف. يتم تغيير حجم تلقائيا كصورة 64x64px، مع الحفاظ على نسبة الجانب. استخدام هذا الحقل في أي مكان مطلوب صورة صغيرة."
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_sinid
+msgid "Social Insurance Number"
+msgstr "رقم التأمين الاجتماعي"
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_ssnid
+msgid "Social Security Number"
+msgstr "رقم الضمان الإجتماعي"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_date_start
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_contract_date_start
+msgid "Start date of the contract."
+msgstr "تاريخ البدء العقد."
+
+#. modules: hr_requests_new, hr_contract, ohrms_loan
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_state
+msgid "State"
+msgstr "الحالة"
+
+#. modules: hr, hr_contract
+#: model:ir.model.fields,field_description:hr.field_hr_job_state
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_state
+msgid "Status"
+msgstr "الحالة "
+
+#. module: hr_contract
+#: model:ir.model.fields,help:hr_contract.field_hr_contract_state
+msgid "Status of the contract"
+msgstr "حالة العقد"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_hr_job_form
+msgid "Stop Recruitment"
+msgstr "وقف التوظيف"
+
+#. module: ohrms_loan
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_loan_form_view
+msgid "Submit"
+msgstr "إرسال"
+
+#. module: ohrms_loan
+#: selection:hr.loan,state:0
+msgid "Submitted"
+msgstr "قدمت"
+
+#. module: hr
+#: model:ir.actions.act_window,name:hr.hr_employee_action_subordinate_hierachy
+msgid "Subordinate Hierarchy"
+msgstr "هيكل المرؤوسين"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_child_ids
+msgid "Subordinates"
+msgstr "المرؤوسين"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Suspend Payroll"
+msgstr "تعليق الراتب"
+
+#. module: hr
+#: sql_constraint:hr.employee.category:0
+msgid "Tag name already exists !"
+msgstr "هذا الوسم موجود بالفعل!"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category_ids
+msgid "Tags"
+msgstr "الوسوم"
+
+#. module: ohrms_loan
+#: model:ir.ui.view,arch_db:ohrms_loan.view_loan_request_search_form
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Termination"
+msgstr "إنهاء الخدمات"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_is_address_home_a_company
+msgid "The employee adress has a company linked"
+msgstr "عنوان الموظف مرتبط بالشركة"
+
+#. module: hr
+#: sql_constraint:hr.job:0
+msgid "The name of the job position must be unique per department in company!"
+msgstr "يجب أن يكون اسم المنصب الوظيفي فريداً غير مكرراً لكل إدارة في المؤسسة."
+
+#. module: hr_gamification
+#: code:addons/hr_gamification/models/gamification.py:18
+#, python-format
+msgid "The selected employee does not correspond to the selected user."
+msgstr "الموظف المحدد لا يتفق مع المستخدم المحدد."
+
+#. module: hr
+#: model:ir.model.fields,help:hr.field_hr_employee_image
+msgid "This field holds the image used as photo for the employee, limited to 1024x1024px."
+msgstr "هذه الخانة تستخدم لصورة الموظف، أكبر حجم 1024x1024px"
+
+#. module: hr_contract
+#: selection:hr.contract,state:0
+#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
+#: model:mail.message.subtype,name:hr_contract.mt_contract_pending
+msgid "To Renew"
+msgstr "للتجديد "
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_total_amount
+msgid "Total Amount"
+msgstr "إجمالي المبلغ"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_job_expected_employees
+msgid "Total Forecasted Employees"
+msgstr "عدد الموظفين المتوقعين"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_payslip_total_paid
+msgid "Total Loan Amount"
+msgstr "إجمالي مبلغ السلفة"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_total_paid_amount
+msgid "Total Paid Amount"
+msgstr "إجمالي البلغ المسدد"
+
+#. module: hr_requests_new
+#: model:ir.model.fields,field_description:hr_requests_new.field_hr_request_value
+msgid "Total amount"
+msgstr "إجمالي المبلغ"
+
+#. module: ohrms_loan
+#: model:ir.model.fields,field_description:ohrms_loan.field_hr_loan_treasury_account_id
+msgid "Treasury Account"
+msgstr "حساب الخزنة"
+
+#. module: hr_requests_new
+#: model:ir.actions.act_window,name:hr_requests_new.hr_trip_action_window
+#: model:ir.ui.menu,name:hr_requests_new.hr_trip_menu
+msgid "Trips"
+msgstr "رحلات"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Type"
+msgstr "النوع"
+
+#. module: hr_requests_new
+#: model:ir.ui.view,arch_db:hr_requests_new.hr_requests_new_search
+msgid "Un Renew Contract"
+msgstr "عدم تجديد العقد"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_kanban_view_employees
+#: model:ir.ui.view,arch_db:hr.view_department_filter
+#: model:ir.ui.view,arch_db:hr.view_employee_filter
+#: model:ir.ui.view,arch_db:hr.view_job_filter
+msgid "Unread Messages"
+msgstr "الرسائل الغير مقروءة"
+
+#. module: ohrms_loan
+#: model:ir.ui.view,arch_db:ohrms_loan.hr_payslip_form_inherit_view
+msgid "Update Loans"
+msgstr "تحديث السلف"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Use here the home address of the employee.\n"
+"                                            This private address is used in the expense report reimbursement document.\n"
+"                                            It should be different from the work address."
+msgstr "استخدم هنا عنوان المنزل للموظف.\n"
+"يتم استخدام هذا العنوان الخاص في مستند سداد تقرير النفقات.\n"
+"يجب أن يكون مختلفًا عن عنوان العمل."
+
+#. module: ohrms_loan
+#: model:ir.actions.act_window,help:ohrms_loan.action_hr_loan_request
+msgid "Use this menu to create loan requests."
+msgstr "استخدم هذه القائمة لإنشاء طلبات السلف."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. modules: hr, hr_gamification
+#: model:ir.model,name:hr.model_res_users
+#: model:ir.model,name:hr_gamification.model_res_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.hr_job_view_kanban
+msgid "Vacancies :"
+msgstr "الشواغر :"
+
+#. modules: hr, hr_contract
+#: model:ir.model.fields,field_description:hr.field_hr_employee_visa_expire
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_visa_expire
+msgid "Visa Expire Date"
+msgstr "تاريخ انتهاء التأشيرة"
+
+#. modules: hr, hr_contract
+#: model:ir.model.fields,field_description:hr.field_hr_employee_visa_no
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_visa_no
+msgid "Visa No"
+msgstr "رقم التأشيرة"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_wage
+msgid "Wage"
+msgstr "الاجور"
+
+#. module: ohrms_loan
+#: selection:hr.loan,state:0
+msgid "Waiting Approval"
+msgstr "في انتظار الموافقة"
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.view_badge_wizard_reward
+msgid "What are you thankful for?"
+msgstr "What are you thankful for?"
+
+#. module: hr
+#: selection:hr.employee,marital:0
+msgid "Widower"
+msgstr "أرمل"
+
+#. module: hr
+#: model:ir.actions.act_window,help:hr.act_employee_from_department
+#: model:ir.actions.act_window,help:hr.open_view_employee_list_my
+msgid "With just a quick glance on the Odoo employee screen, you\n"
+"                can easily find all the information you need for each person;\n"
+"                contact data, job position, availability, etc."
+msgstr "مع نظرة سريعة على شاشة الموظف في اودوو ، أنت\n"
+"يمكنك بسهولة العثور على جميع المعلومات التي تحتاجها لكل شخص ؛\n"
+"بيانات الاتصال ، وموقع الوظيفة ، والتوافر ، وما إلى ذلك."
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_address_id
+msgid "Work Address"
+msgstr "عنوان العمل"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_work_email
+msgid "Work Email"
+msgstr "البريد الإلكتروني للعمل"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Work Information"
+msgstr "معلومات العمل"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_work_location
+msgid "Work Location"
+msgstr "مكان العمل"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_mobile_phone
+msgid "Work Mobile"
+msgstr "محمول العمل"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.res_config_settings_view_form
+msgid "Work Organization"
+msgstr "تنظيم العمل"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Work Permit"
+msgstr "تصريح عمل"
+
+#. modules: hr, hr_contract
+#: model:ir.model.fields,field_description:hr.field_hr_employee_permit_no
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_permit_no
+msgid "Work Permit No"
+msgstr "رقم تصريح العمل"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_work_phone
+msgid "Work Phone"
+msgstr "هاتف العمل"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_resource_calendar_id
+msgid "Working Schedule"
+msgstr "جدول العمل"
+
+#. module: hr
+#: model:ir.actions.act_window,help:hr.action_hr_job
+msgid "You can attach a survey to a job position. It will be used in\n"
+"                the recruitment process to evaluate the applicants for this job\n"
+"                position."
+msgstr "You can attach a survey to a job position. It will be used in\n"
+"                the recruitment process to evaluate the applicants for this job\n"
+"                position."
+
+#. module: hr_gamification
+#: code:addons/hr_gamification/wizard/gamification_badge_user_wizard.py:34
+#, python-format
+msgid "You can not send a badge to yourself"
+msgstr "لا يمكنك ارسال شارة لنفسك"
+
+#. module: hr_gamification
+#: code:addons/hr_gamification/wizard/gamification_badge_user_wizard.py:31
+#, python-format
+msgid "You can send badges only to employees linked to a user."
+msgstr "يمكنك ارسال الشارات فقط للموظفين المرتبطين بمستخدم."
+
+#. module: hr
+#: model:mail.template,subject:hr.mail_template_data_unknown_employee_email_address
+msgid "Your document has not been created"
+msgstr "لم يتم إنشاء المستند الخاص بك"
+
+#. module: hr
+#: model:mail.template,body_html:hr.mail_template_data_unknown_employee_email_address
+msgid "Your document has not been created because your email address is not recognized. Please send emails with the email address recorded on your employee information, or contact your HR manager."
+msgstr "Your document has not been created because your email address is not recognized. Please send emails with the email address recorded on your employee information, or contact your HR manager."
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_department_form
+msgid "department"
+msgstr "قسم"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "e.g. Part Time"
+msgstr "على سبيل المثال دوام جزئي"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_hr_job_form
+msgid "e.g. Sales Manager"
+msgstr "مثلا مدير مبيعات"
+
+#. module: hr_gamification
+#: model:ir.model,name:hr_gamification.model_gamification_badge_user_wizard
+msgid "gamification.badge.user.wizard"
+msgstr "gamification.badge.user.wizard"
+
+#. module: hr_requests_new
+#: model:ir.model,name:hr_requests_new.model_hr_penalty
+msgid "hr.penalty"
+msgstr "hr.penalty"
+
+#. module: hr_requests_new
+#: model:ir.model,name:hr_requests_new.model_hr_promotion
+msgid "hr.promotion"
+msgstr "hr.promotion"
+
+#. module: hr_requests_new
+#: model:ir.model,name:hr_requests_new.model_hr_request
+msgid "hr.request"
+msgstr "hr.request"
+
+#. module: hr_requests_new
+#: model:ir.model,name:hr_requests_new.model_letter_type
+msgid "letter.type"
+msgstr "letter.type"
+
+#. module: hr
+#: model:ir.model,name:hr.model_mail_alias_mixin
+msgid "mail.alias.mixin"
+msgstr "mail.alias.mixin"
+
+#. module: hr
+#: model:ir.model,name:hr.model_res_config_settings
+msgid "res.config.settings"
+msgstr "الدقة.التكوين.إعدادات"
+
+#. module: hr
+#: model:res.groups,comment:hr.group_hr_user
+msgid "the user will be able to approve document created by employees."
+msgstr "the user will be able to approve document created by employees."
+
+#. module: hr
+#: model:res.groups,comment:hr.group_hr_manager
+msgid "the user will have an access to the human resources configuration as well as statistic reports."
+msgstr "the user will have an access to the human resources configuration as well as statistic reports."
+
+#. module: hr_gamification
+#: model:ir.ui.view,arch_db:hr_gamification.hr_hr_employee_view_form
+msgid "to reward this employee for a good action"
+msgstr "لمكافأة هذا الموظف على أداء جيد"
+

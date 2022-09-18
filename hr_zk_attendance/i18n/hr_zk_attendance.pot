@@ -1,0 +1,306 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_zk_attendance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-04 18:20+0000\n"
+"PO-Revision-Date: 2019-08-04 18:20+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_machine_form
+msgid "Are you sure you want to do this?"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model,name:hr_zk_attendance.model_hr_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_report_daily_attendance_tree
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.actions.act_window,name:hr_zk_attendance.action_zk_report_daily_attendance
+msgid "Attendance Analysis"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.menu,name:hr_zk_attendance.menu_zk_attendance_view
+msgid "Attendance log"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.actions.act_window,name:hr_zk_attendance.zk_machine_action
+msgid "Attendances"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_machine_form
+msgid "Biometric Device"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_hr_attendance_device_id
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_hr_employee_device_id
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_device_id
+msgid "Biometric Device ID"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_machine_tree
+msgid "Biometric Machine"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.menu,name:hr_zk_attendance.zk_machine_menu
+msgid "Biometric Manager"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,punch_type:0
+#: selection:zk.report.daily.attendance,punch_type:0
+msgid "Break In"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,punch_type:0
+#: selection:zk.report.daily.attendance,punch_type:0
+msgid "Break Out"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,attendance_type:0
+#: selection:zk.report.daily.attendance,attendance_type:0
+msgid "Card"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_attendance_type
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance_attendance_type
+msgid "Category"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,punch_type:0
+#: selection:zk.report.daily.attendance,punch_type:0
+msgid "Check In"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,punch_type:0
+#: selection:zk.report.daily.attendance,punch_type:0
+msgid "Check Out"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_machine_form
+msgid "Clear Data"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_company_id
+msgid "Company"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_create_uid
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_create_date
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_report_daily_attendance_search
+msgid "Current Month"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance_punching_day
+#: model:ir.ui.view,arch_db:hr_zk_attendance.inherited_hr_attendance_view_filter
+msgid "Date"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.menu,name:hr_zk_attendance.zk_machine_sub_menu
+msgid "Device Configuration"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_display_name
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_display_name
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.actions.server,name:hr_zk_attendance.cron_download_data_ir_actions_server
+#: model:ir.cron,cron_name:hr_zk_attendance.cron_download_data
+#: model:ir.cron,name:hr_zk_attendance.cron_download_data
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_machine_form
+msgid "Download Data"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model,name:hr_zk_attendance.model_hr_employee
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance_name
+msgid "Employee"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.inherited_view_attendance_tree
+msgid "Employee attendances"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,attendance_type:0
+#: selection:zk.report.daily.attendance,attendance_type:0
+msgid "Face"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,attendance_type:0
+#: selection:zk.report.daily.attendance,attendance_type:0
+msgid "Finger"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.inherited_hr_attendance_view_filter
+msgid "Group By"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_report_daily_attendance_search
+msgid "Hr Attendance Search"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_id
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_id
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance_id
+msgid "ID"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine___last_update
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance___last_update
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_write_uid
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_write_date
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_name
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_machine_form
+msgid "Machine IP"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_report_daily_attendance_search
+msgid "My Attendance"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,punch_type:0
+#: selection:zk.report.daily.attendance,punch_type:0
+msgid "Overtime In"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,punch_type:0
+#: selection:zk.report.daily.attendance,punch_type:0
+msgid "Overtime Out"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,attendance_type:0
+#: selection:zk.report.daily.attendance,attendance_type:0
+msgid "Password"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_port_no
+msgid "Port No"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_punching_time
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance_punching_time
+msgid "Punching Time"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_punch_type
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance_punch_type
+msgid "Punching Type"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.ui.view,arch_db:hr_zk_attendance.view_zk_report_daily_attendance_search
+msgid "Today"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: selection:zk.machine.attendance,attendance_type:0
+#: selection:zk.report.daily.attendance,attendance_type:0
+msgid "Type_2"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: code:addons/hr_zk_attendance/models/zk_machine.py:91
+#: code:addons/hr_zk_attendance/models/zk_machine.py:280
+#, python-format
+msgid "Unable to connect, please check the parameters and network connections."
+msgstr ""
+
+#. module: hr_zk_attendance
+#: code:addons/hr_zk_attendance/models/zk_machine.py:89
+#: code:addons/hr_zk_attendance/models/zk_machine.py:278
+#, python-format
+msgid "Unable to get the attendance log, please try again later."
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_address_id
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_machine_attendance_address_id
+#: model:ir.model.fields,field_description:hr_zk_attendance.field_zk_report_daily_attendance_address_id
+msgid "Working Address"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model,name:hr_zk_attendance.model_zk_machine
+msgid "zk.machine"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model,name:hr_zk_attendance.model_zk_machine_attendance
+msgid "zk.machine.attendance"
+msgstr ""
+
+#. module: hr_zk_attendance
+#: model:ir.model,name:hr_zk_attendance.model_zk_report_daily_attendance
+msgid "zk.report.daily.attendance"
+msgstr ""
+

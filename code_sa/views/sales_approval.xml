@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="approve_sale_view_form" model="ir.ui.view">
+            <field name="name">approve.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="before">
+                    <button string="Approve" type="object" name="action_approve" states="waiting" class="oe_highlight"
+                            groups="sales_team.group_sale_manager"/>
+                </xpath>
+                <xpath expr="//button[@name='action_cancel']" position="attributes">
+                    <attribute name="states">draft,sent,sale,waiting</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

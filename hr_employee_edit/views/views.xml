@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="commerce_hr_employee_inherit_form_view">
+            <field name="name">commerce.hr.employee.form.view</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="identification_id" position="after">
+                    <field name="id_release_date"/>
+                    <field name="id_ex_date"/>
+                </field>
+                <field name="passport_id" position="after">
+                    <field name="passport_release_date"/>
+                    <field name="passport_ex_date"/>
+                </field>
+                <xpath expr="//field[@name='fam_ids']/tree/field[@name='member_name']" position="after">
+                    <field name="arbic_name"/>
+                    <field name="member_id"/>
+                    <field name="birth_date"/>
+                </xpath>
+
+                <xpath expr="//field[@name='emergency_contact']/tree/field[@name='relation']" position="after">
+                    <field name="rel"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="commerce_hr_contract_inherit_form_view">
+            <field name="name">commerce.hr.contract.form.view</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <field name="job_id" position="after">
+                    <field name="type"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

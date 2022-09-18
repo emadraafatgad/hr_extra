@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <menuitem id="hr_root_menu" name="HR" />
+        <record id="hr.menu_hr_root" model="ir.ui.menu">
+            <field name="parent_id" ref="hr_root_menu"/>
+        </record>
+        <record id="hr_holidays.menu_hr_holidays_root" model="ir.ui.menu">
+            <field name="parent_id" ref="hr_root_menu"/>
+        </record>
+
+    </data>
+
+</odoo>

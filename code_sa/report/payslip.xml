@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="payslip_paperformat_employee_payslip" model="report.paperformat">
+            <field name="name">Employee Payslip</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">297</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">30</field>
+            <field name="margin_bottom">23</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report
+                id="employee_payslips_report"
+                model="hr.payslip"
+                string="Employees payslip"
+                report_type="qweb-pdf"
+                name="code_sa.report_employee_payslips_template"
+                file="code_sa.report_employee_payslips_template"
+        />
+        <!--<record id="employee_payslips_report" model="ir.actions.report.xml">-->
+        <!--<field name="paperformat_id" ref="code_sa.payslip_paperformat_employee_payslip"/>-->
+        <!--</record>-->
+
+        <template id="report_employee_payslips_template">
+            <!--<t t-foreach="docs" t-as="doc">-->
+            <t t-call="web.html_container">
+                <t t-set="data_report_margin_top" t-value="12"/>
+                <t t-set="data_report_header_spacing" t-value="9"/>
+                <t t-set="data_report_dpi" t-value="110"/>
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <div style="font-size: 18x; !important;">
+                            <group>
+                                <!--<img t-if="res_company.logo" t-att-src="'data:image/png;base64,%s' %res_company.logo"-->
+                                <!--style="max-height: 200px;"/>-->
+                                <img t-if="res_company.logo"
+                                     t-att-src="'data:image/png;base64,%s' % to_text(res_company.logo)"
+                                     class="pull-left"/>
+                                <br style="font-weight: bold;">
+                                    <span t-field="res_company.name"/>
+                                </br>
+                                <b style="font-weight: bold;">
+                                    <span t-field="res_company.street"/>
+                                    ,
+                                    <span t-field="res_company.city"/>
+                                </b>
+                                <br style="font-weight: bold;">
+                                    <span t-field="res_company.country_id"/>
+                                </br>
+                                <br style="font-weight: bold;">TAX:
+                                    <span t-field="res_company.vat"/>
+                                </br>
+                                <div class="row zero_min_height">
+                                    <div class="col-xs-12">
+                                        <div style="border-bottom: 1px solid black;"></div>
+                                    </div>
+                                </div>
+                            </group>
+                        </div>
+                        <div style="font-size: 18px;">
+                            <p></p>
+                            <p></p>
+                            <div class="text-center">
+                                <p style="font-size:24px;">
+                                    <b>
+                                        <u>Employee Payslip</u>
+                                    </b>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <t t-if="docs[0].date_from">
+                                        <strong>From:</strong>
+                                        <span t-esc="docs[0].date_from"/>
+                                    </t>
+                                    <br/>
+                                    <t t-if="docs[0].date_to">
+                                        <strong>To:</strong>
+                                        <span t-esc="docs[0].date_to"/>
+                                    </t>
+
+                                </div>
+                                <div class="col-xs-4">
+
+                                    <table class="table table-bordered">
+                                        <tbody style="font-size: 12px !important;">
+                                            <tr>
+                                                <td style="white-space: text-nowrap;">
+                                                    <strong>Month</strong>
+                                                </td>
+                                                <td style="white-space: text-nowrap;">
+                                                    <t t-if="docs[0].date_from">
+                                                        <span t-esc="str(docs[0].date_from)[:7]"/>
+                                                    </t>
+
+                                                </td>
+                                                <!--t-field-options='{"format": "MMMM y"}'-->
+                                            </tr>
+                                            <tr>
+                                                <td style="white-space: text-nowrap;">
+                                                    <strong>Days</strong>
+                                                </td>
+                                                <td style="white-space: text-nowrap;">
+                                                    <span t-esc="docs[0].month_days"/>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="white-space: text-nowrap;">
+                                                    <strong>Total Employees</strong>
+                                                </td>
+                                                <td style="white-space: text-nowrap;">
+                                                    <span t-esc="len(docs)"/>
+                                                </td>
+
+                                            </tr>
+                                            <t t-set="tsal" t-value="0"/>
+                                            <t t-foreach="docs" t-as="t">
+                                                <t t-foreach="t.line_ids" t-as="line">
+                                                    <t t-if="line.salary_rule_id.code == 'NET'">
+                                                        <t t-set="tsal" t-value="tsal+line.total"/>
+                                                    </t>
+                                                </t>
+                                            </t>
+                                            <tr>
+                                                <td style="white-space: text-nowrap;">
+                                                    <strong>Total Salaries</strong>
+                                                </td>
+                                                <td style="white-space: text-nowrap;">
+                                                    <span t-esc="'%.2f'% tsal"/>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr style="style; font-size: 14px !important;">
+                                        <th rowspan="2" style="background-color: #99ccff;" colspan="2">No</th>
+                                        <th rowspan="2" style="background-color: #99ccff;">Employee Name</th>
+                                        <!--<th  >National ID #</th>-->
+                                        <!--<th  >Nationality</th>-->
+                                        <th rowspan="2" style="background-color: #99ccff;">Position</th>
+                                        <th rowspan="2" style="background-color: #99ccff;">Basic</th>
+                                        <th rowspan="2" style="background-color: #99ccff;">Working Days</th>
+                                        <th rowspan="2" style="background-color: #99ccff;">Value</th>
+
+                                        <!--<th>Joining Date</th>-->
+                                        <th colspan="5" style="background-color: #66b3ff;" class="text-center">
+                                            Allowances
+                                        </th>
+
+                                        <th rowspan="2" style="background-color: #99ccff;">Due</th>
+                                        <th colspan="5" style="background-color: #66b3ff;" class="text-center">
+                                            Deductions
+                                        </th>
+                                        <th rowspan="02" style="background-color: #99ccff;">Net salary</th>
+                                        <!--<th>Employee bank account</th>-->
+                                        <th rowspan="2" style="background-color: #99ccff;">Department</th>
+                                        <!--<th  >Notes</th>-->
+                                        <!--<th  >Signature</th>-->
+                                    </tr>
+                                    <tr style="style; font-size: 14px !important;">
+                                        <th style="background-color: #99ccff;">Housing</th>
+                                        <th style="background-color: #99ccff;">Trans.</th>
+                                        <th style="background-color: #99ccff;">Telephone</th>
+                                        <th style="background-color: #99ccff;">Other</th>
+                                        <th style="background-color: #99ccff;">Total</th>
+                                        <th style="background-color: #99ccff;">GOSI</th>
+                                        <th style="background-color: #99ccff;">Late hours</th>
+                                        <th style="background-color: #99ccff;">Bank Fees</th>
+                                        <th style="background-color: #99ccff;">Other</th>
+                                        <th style="background-color: #99ccff;">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="font-size: 12px !important;">
+                                    <t t-set="n" t-value="0"/>
+                                    <t t-set="alltot" t-value="0"/>
+                                    <tr t-foreach="deps" t-as="d">
+                                        <t t-set="dn" t-value="0"/>
+                                        <t t-set="dname" t-value="''"/>
+                                        <t t-set="tdep" t-value="0"/>
+                                        <!--<strong t-esc="tdep"/>-->
+                                        <t t-foreach="docs" t-as="o">
+                                            <t t-if="o.department_id.id == d.id">
+                                                <tr>
+                                                    <t t-set="dname" t-value="o.employee_id.department_id.name"/>
+                                                    <t t-set="n" t-value="n+1"/>
+                                                    <t t-set="dn" t-value="dn+1"/>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="n"/>
+                                                    </td>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="dn"/>
+                                                    </td>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-field="o.employee_id.name"/>
+                                                    </td>
+                                                    <!--<td-->
+                                                    <!--style="white-space: text-nowrap;">-->
+                                                    <!--<span t-att-style="style" t-field="o.employee_id.identification_id"/>-->
+                                                    <!--</td>-->
+                                                    <!--<td-->
+                                                    <!--style="white-space: text-nowrap;">-->
+                                                    <!--<span t-att-style="style" t-field="o.employee_id.country_id.name"/>-->
+                                                    <!--</td>-->
+
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-field="o.employee_id.job_id.name"/>
+                                                    </td>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-field="o.contract_id.wage"/>
+                                                    </td>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-field="o.working_days"/>
+                                                    </td>
+                                                    <t t-set="bas" t-value="0"/>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <t t-foreach="o.line_ids" t-as="line">
+                                                            <t t-if="line.salary_rule_id.code == 'BASIC'">
+                                                                <span t-att-style="style" t-field="line.total"/>
+                                                                <t t-set="bas" t-value="line.total"/>
+                                                            </t>
+                                                        </t>
+                                                    </td>
+
+                                                    <!--<td style="white-space: text-nowrap;">-->
+                                                    <!--<span t-att-style="style" t-field="o.contract_id.joined_date"/>-->
+                                                    <!--</td>-->
+                                                    <t t-set="hou" t-value="0"></t>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.salary_rule_id.code == 'HOUSE'">
+                                                            <t t-set="hou" t-value="line.total"/>
+                                                        </t>
+                                                    </t>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="hou"/>
+                                                    </td>
+
+                                                    <t t-set="trn" t-value="0"></t>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.salary_rule_id.code == 'TRANS'">
+                                                            <t t-set="trn" t-value="line.total"/>
+                                                        </t>
+                                                    </t>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="trn"/>
+                                                    </td>
+                                                    <t t-set="phone" t-value="0"></t>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.salary_rule_id.code == 'PHONE'">
+                                                            <t t-set="phone" t-value="line.total"/>
+                                                        </t>
+                                                    </t>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="phone"/>
+                                                        <!--<span t-att-style="style" t-esc="balance"/>                                                             </td>-->
+                                                        <!--<span t-att-style="style" t-field="line.total"/>-->
+                                                    </td>
+
+                                                    <t t-set="allow" t-value="0"></t>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.salary_rule_id.code == 'OTHER'">
+                                                            <t t-set="allow" t-value="line.total"/>
+                                                        </t>
+                                                    </t>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="allow"/>
+                                                        <!--<span t-att-style="style" t-esc="balance"/>                                                             </td>-->
+                                                        <!--<span t-att-style="style" t-field="line.total"/>-->
+                                                    </td>
+                                                    <t t-set="tallow" t-value="allow+phone+trn+hou"/>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="tallow"/>
+                                                        <!--<span t-att-style="style" t-esc="balance"/>                                                             </td>-->
+                                                        <!--<span t-att-style="style" t-field="line.total"/>-->
+                                                    </td>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <t t-foreach="o.line_ids" t-as="line">
+                                                            <t t-if="line.salary_rule_id.code == 'GROSS'">
+                                                                <span t-att-style="style" t-field="line.total"/>
+                                                            </t>
+                                                        </t>
+                                                    </td>
+                                                    <!--Deductions-->
+                                                    <t t-set="gosi" t-value="0"></t>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.salary_rule_id.code == 'EM GOSI'">
+                                                            <t t-set="gosi" t-value="line.total"/>
+                                                        </t>
+                                                    </t>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="gosi"/>
+                                                    </td>
+
+                                                    <t t-set="late" t-value="0"></t>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.salary_rule_id.code == 'Late'">
+                                                            <t t-set="late" t-value="line.total"/>
+                                                        </t>
+                                                    </t>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="late"></span>
+                                                        <!--<span t-att-style="style" t-field="line.total"/>-->
+                                                    </td>
+
+                                                    <t t-set="bank" t-value="0"></t>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.salary_rule_id.code == 'BANK FEES'">
+                                                            <t t-set="bank" t-value="line.total"/>
+                                                        </t>
+                                                    </t>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="bank"></span>
+                                                        <!--<span t-att-style="style" t-field="line.total"/>-->
+                                                    </td>
+
+                                                    <t t-set="unpaid" t-value="0"></t>
+                                                    <t t-foreach="o.line_ids" t-as="line">
+                                                        <t t-if="line.salary_rule_id.code == 'other ded'">
+                                                            <t t-set="unpaid" t-value="line.total"/>
+                                                        </t>
+                                                    </t>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="unpaid"/>
+                                                    </td>
+
+                                                    <t t-set="tded" t-value="unpaid+bank+late+gosi"/>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-att-style="style" t-esc="tded"/>
+                                                    </td>
+
+
+                                                    <td style="white-space: text-nowrap;">
+                                                        <t t-foreach="o.line_ids" t-as="line">
+                                                            <t t-if="line.salary_rule_id.code == 'NET'">
+                                                                <span t-att-style="style" t-field="line.total"/>
+                                                                <t t-set="tdep" t-value="tdep+line.total"/>
+                                                                <t t-set="alltot" t-value="alltot+line.total"/>
+                                                            </t>
+                                                        </t>
+                                                    </td>
+                                                    <td style="white-space: text-nowrap;">
+                                                        <span t-field="o.department_id.name"/>
+                                                    </td>
+                                                    <!--<td style="white-space: text-nowrap;">-->
+                                                    <!--<span t-att-style="style"-->
+                                                    <!--t-field="o.employee_id.bank_account_id.acc_number"/>-->
+                                                    <!--</td>-->
+
+
+                                                    <!--<td-->
+                                                    <!--style="white-space: text-nowrap;">-->
+                                                    <!--<p t-att-style="style" >___________________</p>-->
+                                                    <!--</td>-->
+                                                    <!--<td-->
+                                                    <!--style="white-space: text-nowrap;">-->
+                                                    <!--<p t-att-style="style">__________________</p>-->
+                                                    <!--</td>-->
+                                                </tr>
+                                            </t>
+                                        </t>
+                                        <tr>
+                                            <td class="text-center" colspan="17">
+                                                <p style="font-size:14px;">
+                                                    <strong>Total Net Salaries for</strong>
+                                                    <strong t-esc="d.name"/>
+                                                    <strong>department</strong>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size:14px;">
+                                                    <strong t-esc="'%.2f'% tdep"/>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <strong t-esc="d.name"/>
+                                            </td>
+                                        </tr>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" colspan="17">
+                                            <p style="font-size:14px;">
+                                                <strong>Total Net Salaries</strong>
+                                            </p>
+                                        </td>
+                                        <td colspan="2">
+                                            <p style="font-size:14px;">
+                                                <strong t-esc="'%.2f'% alltot"/>
+                                            </p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--</group>-->
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="row text-center">
+                            <div class="col-xs-3">
+                                <strong>HR Manager</strong>
+                                <br/>
+                                <p>
+                                    <br>_______________</br>
+                                </p>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <strong>Accounting Manager :</strong>
+                                <br/>
+                                <p>
+                                    <br>_______________</br>
+                                </p>
+                            </div>
+                            <div class="col-xs-3 text-center">
+                                <strong>Secretary General:</strong>
+                                <br/>
+                                <p>
+                                    <br>_______________</br>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <!--<div class="row text-center">-->
+                        <!--<div class="col-xs-5">-->
+                        <!--<strong>Prepared BY :</strong>-->
+                        <!--<br/>-->
+                        <!--<br>Signature :</br>-->
+                        <!--<p>-->
+                        <!--<span t-esc="request.env.user.name"/>-->
+                        <!--<br/>-->
+                        <!--<br>_______________</br>-->
+                        <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-5 text-right">-->
+                        <!--<strong>Approved By :</strong>-->
+                        <!--<br/>-->
+                        <!--<br>Signature :</br>-->
+                        <!--<p>-->
+                        <!--<br/>-->
+                        <!--<br>_______________</br>-->
+                        <!--</p>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,58 @@
+<odoo>
+
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="hr_accounts_tree">
+            <field name="name">hr.accounts.form</field>
+            <field name="model">hr.accounts</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_accounts_form">
+            <field name="name">hr.accounts.form</field>
+            <field name="model">hr.accounts</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="end_of_service_accrual_acc"/>
+                                <field name="end_of_service_exp_acc"/>
+                                <field name="vac_journal_id"/>
+                                <field name="vacation_accrual_acc"/>
+                                <field name="vacation_exp_acc"/>
+                                <field name="tickets_accrual_acc"/>
+                                <field name="tickets_exp_acc"/>
+                                <field name="eos_journal_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_accounts_form">
+            <field name="name">HR Accounts</field>
+            <field name="res_model">hr.accounts</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="hr_accounts_rule" model="ir.rule">
+            <field name="name">HR Accounts Rule</field>
+            <field name="model_id" ref="model_hr_accounts"/>
+            <field eval="True" name="global"/>
+            <field name="domain_force">['|',('company_id','child_of',[user.company_id.id]),('company_id','=',False)]
+            </field>
+        </record>
+
+        <menuitem
+                name="HR Accounts" id="menu_hr_accounts" action="action_hr_accounts_form"
+                parent="hr_payroll.menu_hr_payroll_configuration" sequence="1"/>
+
+    </data>
+</odoo>

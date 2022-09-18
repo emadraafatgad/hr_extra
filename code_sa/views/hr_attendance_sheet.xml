@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="hr_attendance_sheet_action">
+            <field name="name">Attendance sheet</field>
+            <field name="res_model">hr.attendance.sheet</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_attendance_sheet_tree_id">
+            <field name="name">sheet Tree</field>
+            <field name="model">hr.attendance.sheet</field>
+            <field name="arch" type="xml">
+                <tree string="sheet list">
+                    <field name="employee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_attendance_sheet_view_form_id">
+            <field name="name">hr.attendance.sheet</field>
+            <field name="model">hr.attendance.sheet</field>
+            <field name="arch" type="xml">
+                <form string="attendance">
+                    <header>
+                        <button confirm="Get attendance ?" name="action_get_attendance" string="Get Attendance"
+                                type="object" class="oe_highlight"/>
+                        <button confirm="submit to manager" name="action_submit_to_manager" string="submit to manager"
+                                type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="employee_id"/>
+                            <group string="period">
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                            </group>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Attendance">
+                                    <field name="em_attendance"/>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <menuitem id="hr_attendance_sheet_view_attendances"
+                  name="Attendances Sheet"
+                  parent="hr_attendance.menu_hr_attendance_manage_attendances"
+                  sequence="10"
+                  action="hr_attendance_sheet_action"
+                  groups="hr.group_hr_manager,hr_payroll.group_hr_payroll_manager"/>
+
+        <!--groups="hr_attendance.group_hr_attendance_user"-->
+    </data>
+</odoo>

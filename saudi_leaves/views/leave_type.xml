@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="edit_holiday_status_form_inherit" model="ir.ui.view">
+            <field name="name">edit_holiday_status_form_inherit</field>
+            <field name="model">hr.holidays.status</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+            <field name="arch" type="xml">
+                <field name="double_validation" position="replace">
+                    <field name="type" required="1" />
+                    <field name="reconciliation_method" attrs="{'readonly':[('type', '=', 'Annual')]}" force_save="1"/>
+                    <field name="separated" attrs="{'invisible':[('limit', '=', True)],'readonly':[('type', '=', 'Annual')]}" force_save="1"/>
+                    <field name="max_request" attrs="{'invisible':[('separated', '!=', 'Only Separated')]}"/>
+                    <field name="gender" />
+                </field>
+                <field name="limit" position="replace"/>
+                <field name="categ_id" position="replace"/>
+                <field name="color_name" position="before">
+                    <field name="limit" string="Unlimited Leave Balance" />
+                    <field name="allocation_type" attrs="{'invisible':[('limit', '=', True)],'required':[('limit', '=', False)]}" />
+                    <field name="allocate_every" attrs="{'invisible':['|',('allocation_type', 'in', ['One Time','On Demand']),('limit', '=', True)]}"/>
+                    <field name="allocation_days" attrs="{'invisible':[('limit', '=', True)]}"/>
+                    <field name="working_calendar" required="1"/>
+                </field>
+                <form position="inside">
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,197 @@
+<odoo>
+    <data>
+        <report
+                id="eos_report"
+                model="termination.termination"
+                string="End of service report"
+                report_type="qweb-pdf"
+                name="end_service.eos_report_template"
+                file="end_service.eos_report_template"
+        />
+        <template id="eos_report_template">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h1 style="text-align:center;">
+                            <!--<t t-set="info" t-value="get_state"/>-->
+                            <span t-field="o.name"/>
+                            <span>End of service settlement</span>
+                        </h1>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>
+                                    <strong>Employee Name:</strong>
+                                    <span t-esc="o.employee.name"/>
+                                    <br/>
+                                    <br/>
+                                    <strong>Job:</strong>
+                                    <span t-esc="o.employee.job_id.name"/>
+                                    <br/>
+                                    <br/>
+                                    <strong>Employee No:</strong>
+                                    <span t-esc="o.employee.id"/>
+                                </td>
+                                <td>
+                                    <strong>Joining date:</strong>
+                                    <span t-field="o.cont_start_date"/>
+                                    <br/><br/>
+                                    <strong>End date:</strong>
+                                    <span t-field="o.end_of_service"/>
+                                    <br/><br/>
+                                    <!--<strong>Employee No</strong>-->
+                                    <!--<span t-esc="o.employee"/>-->
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Basic Salary:</strong>
+                                    <span t-field="o.wags"/>
+                                    <br/><br/>
+                                    <strong>Transportation Allowance:</strong>
+                                    <span t-field="o.trans_allow"/>
+                                    <br/><br/>
+                                    <strong>phone_allow:</strong>
+                                    <span t-field="o.phone_allow"/>
+                                </td>
+                                <td>
+                                    <strong>House Allowance:</strong>
+                                    <span t-field="o.houseallowan"/>
+                                    <br/><br/>
+                                    <strong>Other Allowances:</strong>
+                                    <span t-field="o.other_allow"/>
+                                    <br/><br/>
+                                    <strong>Bank Fees:</strong>
+                                    <span t-field="o.bank_fees"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <h2>
+                            <span>Payslips</span>
+                        </h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Net</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--<t t-set="doc" t-value="docs"/>-->
+                                <tr t-foreach="o.payslips_ids" t-as="doc">
+                                    <td>
+                                        <span t-esc="doc.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.date_from"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.date_to"/>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="doc.line_ids" t-as="l">
+                                            <t t-if="l.code=='NET'">
+                                                <span t-field="l.total"/>
+                                            </t>
+
+                                        </t>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <h2>
+                            <span>Leaving indemnity details</span>
+                        </h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Accrual days</th>
+                                    <th>Leaving indemnity</th>
+                                    <th>Salary</th>
+                                    <t t-if="o.eos_add">
+                                        <th>Other Additions</th>
+                                    </t>
+                                    <t t-if="o.eos_ded">
+                                        <th>Other Deductions</th>
+                                    </t>
+                                    <th>Total amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--<t t-set="doc" t-value="docs"/>-->
+                                <tr>
+                                    <td>
+                                        <span t-esc="o.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.work_years"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="i" t-value="o.leaving_indemnity - o.net_salary"/>
+                                        <span t-esc="i"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.net_salary"/>
+                                    </td>
+                                    <t t-if="o.eos_add">
+                                        <td>
+                                            <span t-field="o.eos_add"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="o.eos_ded">
+                                        <td>
+                                            <span t-field="o.eos_ded"/>
+                                        </td>
+                                    </t>
+                                    <td>
+                                        <span t-field="o.leaving_indemnity"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/><br/>
+                        <h2>
+                            <span>Signatures</span>
+                        </h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Accounting Manger</th>
+                                    <th>HR Employee</th>
+                                    <th>HR Manger</th>
+                                    <th>General Manager</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--<t t-set="doc" t-value="docs"/>-->
+                                <tr>
+                                    <td>
+                                        <br/>
+                                    </td>
+                                    <td>
+                                        <br></br>
+                                    </td>
+                                    <td>
+                                        <br></br>
+                                    </td>
+                                    <td>
+                                        <br></br>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,372 @@
+<odoo>
+    <data>
+        <!--<record id="action_transfer_landcost_form" model="ir.actions.act_window">
+            <field name="name">Landed Costs</field>
+            <field name="res_model">stock.landed.cost</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('picking_ids','=',[active_id])]</field>
+            <field name="context">{'search_default_picking_ids': [active_id],'default_picking_ids': [active_id]}</field>
+        </record>
+
+        <record id="picking_form_view_land_cost" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref='stock.view_picking_form'/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//div[@name='button_box']" position="inside">
+                        <button name="%(action_transfer_landcost_form)d" type="action" class="oe_inline oe_stat_button" icon="fa-cogs"
+                                attrs="{'invisible':[('picking_type_code', 'in', ['outgoing','internal']),('state','!=', 'done')]}"
+                                groups="stock.group_stock_user">
+                            <field name="land_cost_count" widget="statinfo" string="Land Costs"/>
+                        </button>
+                    </xpath>
+                </data>
+            </field>
+        </record>-->
+        <record id="edit_holiday_status_form" model="ir.ui.view">
+            <field name="name">l10n_ec.edit.holiday.status.form</field>
+            <field name="model">hr.holidays.status</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='color_name']" position="after">
+                    <field name="annual"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="inherit_edit_holiday_new" model="ir.ui.view">
+            <field name="name">Leave Request</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='department_id']" position="after">
+                    <field name="annual" groups="hr_holidays.group_hr_holidays_manager" attrs="{'invisible':True}"/>
+                    <field name="vac_id" groups="hr.group_hr_user" attrs="{'invisible':[('annual', '!=', True)]}"/>
+                    <field name="vac_state" attrs="{'invisible':[('annual','!=',True),('state','!=','validate')]}"/>
+                </xpath>
+                <xpath expr="//group/group" position="inside">
+                    <field name="from_balance" attrs="{'invisible':[('annual', '!=', True)]}"/>
+                    <field name="balance" attrs="{'invisible':[('annual', '!=', True)]}"/>
+                    <field name="create_date" readonly="1" attrs="{'invisible':[('annual', '!=', True)]}"/>
+                    <field name="current_balance" attrs="{'invisible':[('annual', '!=', True)]}"/>
+                    <field name="advan" attrs="{'invisible':[('annual', '!=', True)]}"/>
+                    <field name="add_ticket" attrs="{'invisible':[('annual', '==', False)]}"/>
+                    <field name="add_visa" attrs="{'invisible':[('annual', '==', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='payslip_status']" position="after">
+                    <field name="tdate_from" attrs="{'invisible':[('add_ticket', '==', False)]}"/>
+                    <field name="tdate_to" attrs="{'invisible':[('add_ticket', '==', False)]}"/>
+                    <field name="tdest_from" attrs="{'invisible':[('add_ticket', '==', False)]}"/>
+                    <field name="tdest_to" attrs="{'invisible':[('add_ticket', '==', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_holidays.action_open_ask_holidays_calendar" model="ir.actions.act_window.view">
+            <field name="sequence" eval="4"/>
+        </record>
+
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="hr_vacation_list">
+            <field name="name">vacation request list</field>
+            <field name="model">vacation.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="name"/>
+                    <field name="vac_period"/>
+                    <field name="wags" string="Wags"/>
+                    <field name="vac_indemnity"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vacation_from">
+            <field name="name">vacation request form</field>
+            <field name="model">vacation.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_done" states="draft" string="Confirm" type="object" class="btn-primary"/>
+                        <button name="action_draft" states="cancel" string="Reset to Draft" type="object"/>
+                        <button name="action_cancel" states="draft" groups="hr.group_hr_manager" string="Reject"
+                                type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+
+                            <button name="toggle_active" type="object" groups="hr.group_hr_user"
+                                    class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <h2>
+                            <field name="name"></field>
+                        </h2>
+                        <group string="Employee Data">
+                            <group>
+                                <field name="employee_id" string="Employee"
+                                       attrs="{'readonly':[('state', '=', 'done')]}"/>
+                            </group>
+                            <group>
+                                <field name="employee_department"/>
+                            </group>
+                        </group>
+
+
+                        <group string="Vacation Details">
+                            <group>
+                                <field name="date_from" attrs="{'readonly':[('state', '=', 'done')]}"/>
+                                <field name="last_vac"/>
+                                <field name="balance"/>
+                                <field name="move_id" attrs="{'invisible':[('state', '!=', 'done')]}"/>
+
+                            </group>
+                            <group>
+                                <field name="date_to" attrs="{'readonly':[('state', '=', 'done')]}"/>
+                                <field name="vac_period"/>
+                                <field name="work_days" attrs="{'readonly':[('state', '=', 'done')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contract Data">
+                                <group>
+                                    <group string="contract">
+                                        <field name="cont_start_date"/>
+                                        <field name="cont_end_date"/>
+                                        <field name="wags" string="Wags"/>
+                                        <field name="bank_fees" string="Bank Fees"/>
+                                        <field name="other_deductions" string="Other Deduction"/>
+                                    </group>
+                                    <group string="Allowances">
+                                        <field name="trans_allow" string="Transportation Allowance"/>
+                                        <field name="phone_allow" string="Phone Allowance"/>
+                                        <field name="other_allow" string="Other Allowances"/>
+                                        <field name="houseallowan" string="House Allowance"/>
+                                    </group>
+                                </group>
+                                <group string="Contract Vacation data">
+                                    <group>
+                                        <field name="cont_hasvacationeach"/>
+                                        <field name="cont_annual_vacation"/>
+                                    </group>
+                                    <group>
+                                        <field name="cont_has_ticket_each" string="Tr\ansportation Allowance"/>
+                                        <field name="cont_no_tickets" string="Phone Allowance"/>
+                                    </group>
+
+                                </group>
+                            </page>
+                            <page string="Payslip">
+                                <field name="payslips_ids"
+                                       context="{'default_employee_id':employee_id, 'default_date_to':date_from}"/>
+                            </page>
+                            <page string="Vacation Salary">
+                                <group>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Employee Name" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <!--<td>-->
+                                                <!--<h2 class="text-center">-->
+                                                <!--<label string="From" style="font-weight:bold;"/>-->
+                                                <!--</h2>-->
+
+                                                <!--</td>-->
+                                                <!--<td>-->
+                                                <!--<h2 class="text-center">-->
+                                                <!--<label string="To" style="font-weight:bold;"/>-->
+                                                <!--</h2>-->
+
+                                                <!--</td>-->
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Period" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Basic" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h3 class="text-center">
+                                                        <label string="Vacation Salary" style="font-weight:bold;"/>
+                                                    </h3>
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-center">
+                                                    <field name="employee_name" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="vac_period" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="vac_amount" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="vac_amount" attrs="{'readonly':True}"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </group>
+                            </page>
+                            <page string="Tickets">
+                                <group>
+                                    <group>
+                                        <field name="cont_no_tickets"/>
+                                        <field name="add_ticket"/>
+                                        <field name="ticket_amount"
+                                               attrs="{'invisible': [('add_ticket', '=', False)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="cont_ticket"/>
+                                        <field name="ticket_no" attrs="{'invisible': [('add_ticket', '=', False)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Others">
+                                <group>
+                                    <group>
+                                        <field name="vac_add"/>
+                                    </group>
+                                    <group>
+                                        <field name="vac_ded"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Total">
+                                <group>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Employee Name" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <!--<td>-->
+                                                <!--<h2 class="text-center">-->
+                                                <!--<label string="From" style="font-weight:bold;"/>-->
+                                                <!--</h2>-->
+
+                                                <!--</td>-->
+                                                <!--<td>-->
+                                                <!--<h2 class="text-center">-->
+                                                <!--<label string="To" style="font-weight:bold;"/>-->
+                                                <!--</h2>-->
+
+                                                <!--</td>-->
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Period" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Payslip Salary" style="font-weight:bold;"/>
+                                                    </h2>
+                                                </td>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Ticket Amount" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Additions" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h2 class="text-center">
+                                                        <label string="Deductions" style="font-weight:bold;"/>
+                                                    </h2>
+
+                                                </td>
+                                                <td>
+                                                    <h3 class="text-center">
+                                                        <label string="Vacation Salary" style="font-weight:bold;"/>
+                                                    </h3>
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-center">
+                                                    <field name="employee_name" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="vac_period" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="net_salary" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="tot_tick" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="tot_add" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="tot_ded" attrs="{'readonly':True}"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <field name="vac_indemnity" attrs="{'readonly':True}"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </group>
+
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name="vac_indemnity" string="Vacation indemnity"/>
+                            <field name="vac_salary"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="vacation_action_window">
+            <field name="name">Vacation Requests</field>
+            <field name="res_model">vacation.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menu categories -->
+        <menuitem name="Vacations" groups="hr.group_hr_user" action="vacation_action_window" id="vacation_menu_1"
+                  parent="hr_payroll.menu_hr_payroll_root" sequence="10"/>
+
+    </data>
+</odoo>

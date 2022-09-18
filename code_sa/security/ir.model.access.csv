@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+eos_hr_manager,eos_hr_manager,model_hr_eos,hr_payroll.group_hr_payroll_manager,1,1,1,1
+air_hr_manager,eos_hr_manager,model_air_line,hr_payroll.group_hr_payroll_manager,1,1,1,1
+hr_attendance_hr_manager,eos_hr_manager,model_hr_attendance_sheet,hr_payroll.group_hr_payroll_manager,1,1,1,1
+attendance_config_hr_manager,eos_hr_manager,model_hr_attendance_config,hr_payroll.group_hr_payroll_manager,1,1,1,1

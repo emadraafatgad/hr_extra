@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payslip_month_days_payslip_month_days,payslip_month_days.payslip_month_days,model_payslip_month_days_payslip_month_days,,1,0,0,0

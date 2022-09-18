@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="userr_exemption_rule" model="ir.rule">
+            <field name="name">Exemption requests rule</field>
+            <field name="model_id" ref="model_exemption_exemption"/>
+            <field name="groups"
+                   eval="[(4, ref('hr.group_hr_user')),(4, ref('hr_holidays.group_hr_holidays_user')),(4, ref('base.group_user'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="domain_force">['|',('name.user_id','=',user.id),'&amp;',('state','!=','draft'),('name.parent_id.user_id','=',user.id)]</field>
+        </record>
+        <record id="manager_exemption_rule" model="ir.rule">
+            <field name="name">Exemption requests rule</field>
+            <field name="model_id" ref="model_exemption_exemption"/>
+            <field name="groups"
+                   eval="[(4, ref('hr.group_hr_manager')),(4, ref('hr_holidays.group_hr_holidays_manager')), (4, ref('hr_requests_new.group_hr_majid'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="domain_force">[('state','!=','draft')]</field>
+        </record>
+    </data>
+</odoo>

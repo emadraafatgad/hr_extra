@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <!-- Lab Tests -->
+
+        <record id="Jouranl_itiems" model="res.groups">
+            <field name="name">journal/ Manager</field>
+        </record>
+
+    </data>
+</odoo>

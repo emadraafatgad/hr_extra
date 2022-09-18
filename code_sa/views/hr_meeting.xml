@@ -1,0 +1,110 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="hr_employee_meeting_action">
+            <field name="name">Meeting</field>
+            <field name="res_model">hr.meeting</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="hr_employee_meeting_tree_view_id">
+            <field name="name">Meeting</field>
+            <field name="model">hr.meeting</field>
+            <field name="arch" type="xml">
+                <tree string="Holidays list">
+                    <field name="name"/>
+                    <field name="meeting_from"/>
+                    <field name="meeting_to"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_employee_meeting_view_id">
+            <field name="name">Meeting</field>
+            <field name="model">hr.meeting</field>
+            <field name="arch" type="xml">
+                <form string="Meeting">
+                    <sheet>
+                        <group>
+                            <group string="Reason">
+                                <field name="name"/>
+                            </group>
+                            <group string="period">
+                                <field name="meeting_from"/>
+                                <field name="meeting_to"/>
+                            </group>
+                            <field name="notes"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <menuitem name="Meeting" id="hr_public_meeting_parent" parent="hr_holidays.menu_hr_holidays_root"
+                  sequence="2"
+                  groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+
+        <menuitem name="Meeting" id="hr_public_meeting_child" parent="hr_public_meeting_parent"
+                  sequence="1"
+                  groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"
+                  action="hr_employee_meeting_action"/>
+
+        <record model="ir.actions.act_window" id="hr_employee_auth_action"
+                groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user">
+            <field name="name">Auth</field>
+            <field name="res_model">hr.meeting</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="hr_employee_auth_tree_view_id"
+                groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user">
+            <field name="name">Auth</field>
+            <field name="model">hr.meeting</field>
+            <field name="arch" type="xml">
+                <tree string="Holidays list"
+                      groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user">
+                    <field name="name"
+                           groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+                    <field name="meeting_from"
+                           groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+                    <field name="meeting_to"
+                           groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+                    <field name="notes"
+                           groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_employee_auth_view_id"
+                groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user">
+            <field name="name">auth</field>
+            <field name="model">hr.meeting</field>
+            <field name="arch" type="xml">
+                <form string="Meeting"
+                      groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user">
+                    <sheet>
+                        <group>
+                            <group string="Reason"
+                                   groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user">
+                                <field name="name"
+                                       groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+                            </group>
+                            <group string="period">
+                                <field name="meeting_from"
+                                       groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+                                <field name="meeting_to"
+                                       groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+                            </group>
+                            <field name="notes"
+                                   groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <menuitem name="Authorization request" id="hr_public_auth_child" parent="hr_public_meeting_parent"
+                  sequence="2"
+                  groups="hr.group_hr_manager,hr_payroll.group_hr_payroll_manager"/>
+
+        <!--groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"-->
+    </data>
+</odoo>
